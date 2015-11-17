@@ -1,0 +1,28 @@
+{ "rules":
+    { "eofline": true
+    , "indent": true
+    , "radix": true
+    , "no-arg": true
+    , "check-curly": true
+    , "no-duplicate-key": true
+    , "no-duplicate-variable": true
+    , "no-trailing-whitespace": true
+    , "no-unreachable": true
+    , "no-unused-expression": true
+    , "no-unused-variable": true
+    , "no-use-before-declare": false
+    , "no-arg": true
+    , "no-unused-expression": true
+    , "one-line":
+        [ true
+        , "check-catch"
+        , "check-else"
+        ]
+    , "semicolon": true
+    , "no-empty": true
+    , "class-name": true
+
+    , "no-any": false
+    , "variable-name": false
+    }
+}
