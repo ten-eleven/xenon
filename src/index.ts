@@ -9,7 +9,7 @@ export class Component {
   qa(qaString) {
     return this.setSelector(new QASelector(qaString))
   }
-  
+
   css(cssString) {
     return this.setSelector(new CSSSelector(cssString))
   }
@@ -41,20 +41,22 @@ export class Component {
   }
 
   scrollIntoView():webdriver.promise.Promise<{}> {
-    return browser.executeScript("arguments[0].scrollIntoView(true);", this.getElement());
+    let scrollIntoView = (element:any) => {
+      element.scrollIntoView(true);
+    }
+
+    let element:any = this.getElement();
+    return browser.executeScript(scrollIntoView, element.getWebElement());
   }
 
   isVisible(timeout:number):webdriver.promise.Promise<boolean> {
+    let self = this;
     let visibleCheckFn:any = () => {
-      return browser.isElementPresent(this.getElement())
+      return browser.isElementPresent(self.getElement())
         .then((isPresent:Boolean) => {
-          if (isPresent) {
-            return this.scrollIntoView().then(() => {
-              return this.getElement().isDisplayed();
-            })
-          } else {
-            return false;
-          }
+          return self.scrollIntoView().then(() => {
+            return self.getElement().isDisplayed();
+          })
         })
     };
     return browser.wait(visibleCheckFn, timeout);
