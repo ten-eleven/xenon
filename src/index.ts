@@ -2,7 +2,7 @@ import {Selector,QASelector,CSSSelector} from "./Selectors";
 
 export class Component {
   selector:Selector
-
+  parent:Component
   constructor(parent?:Component) {
   }
 
@@ -23,8 +23,18 @@ export class Component {
     return null;
   }
 
+  getAncestors():Component[]{
+    var ancestors = this.parent ? this.parent.getAncestors() : []
+    return ancestors.concat([this])
+  }
+
   getElement():protractor.WebElementPromise {
-    return null;
+    var ancestors = this.getAncestors()
+    var reducer = function (currentElement, component:Component) {
+      return component.selector.toElement(currentElement)
+    }
+    var nullElement = {element:browser.element}
+    return ancestors.reduce(reducer, nullElement)  
   }
 }
 

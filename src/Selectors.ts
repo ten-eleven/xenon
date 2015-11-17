@@ -8,11 +8,6 @@ export class Selector {
     this.parent = parent
   }
 
-  getParents(): Selector[]{
-    var parents = this.parent ? this.getParents() : []
-    return parents.concat(this)
-  }
-
   locatorCSS() {
     return ""
   }
@@ -21,7 +16,7 @@ export class Selector {
   }
 
   toElement(element:protractor.ElementFinder) {
-    element.element(this.toLocator())
+    return element.element(this.toLocator())
   }
 }
 
