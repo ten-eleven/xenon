@@ -153,7 +153,7 @@ export class List<T extends Component> extends Component {
     this.itemSelector = new CSSSelector(value);
   }
 
-  get(index):T {
+  get(index:number):T {
     let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
     var componentType = new this.itemType(this).setSelector(selector)
     return <T>componentType
