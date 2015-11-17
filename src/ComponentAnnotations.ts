@@ -7,12 +7,20 @@ var initBuilder = function(target:any, propKey) {
   return target._builders[propKey]
 }
 
-export interface FieldOptions {
+type ComponentClass = {new(component:Component):Component}
+
+export interface ComponentOptions {
   css?:string
   qa?:string
   state?:Object
 }
-type ComponentClass = {new(component:Component):Component}
+
+export interface FieldOptions extends ComponentOptions {
+  itemQA?:string
+  itemCSS?:string
+  itemType?:ComponentClass
+}
+
 export function field(componentClass:ComponentClass, options:FieldOptions = {}){
   return function(target:any, propKey:string){
     var annotation = initBuilder(target, propKey)

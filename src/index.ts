@@ -1,4 +1,4 @@
-import {Selector,QASelector,CSSSelector} from "./Selectors";
+import {Selector,QASelector,CSSSelector,CSSIndexSelector} from "./Selectors";
 
 export class Component {
   selector:Selector;
@@ -137,4 +137,30 @@ export class Button extends Component {
   constructor(parent:Component) {
     super(parent);
   }
+}
+
+export class List<T> extends Component {
+
+  itemSelector:Selector;
+  itemType:Component;
+
+  constructor(parent:Component) {
+    super(parent);
+  }
+
+  itemQA (value:string) {
+    this.itemSelector = new QASelector(value);
+  }
+
+  itemCSS (value:string) {
+    this.itemSelector = new CSSSelector(value);
+  }
+
+  get(index):T {
+    let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
+    let itemComponent = this.itemType.create();
+    itemComponent.selector = selector;
+    return itemComponent;
+  }
+
 }

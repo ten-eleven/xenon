@@ -1,4 +1,4 @@
-import {Component, Input, Button} from "../../../src/index";
+import {Component, Input, Button, List} from "../../../src/index";
 import {QASelector,CSSSelector} from "../../../src/Selectors";
 import {defaults, field} from "../../../src/ComponentAnnotations";
 
@@ -28,6 +28,16 @@ class UserForm extends Component {
 
 }
 
+class Message extends Component {
+
+  @field(Component, {qa:"message--msg"})
+  msg:Component;
+
+  @field(Component, {qa:"message--msg"})
+  user:Component;
+
+}
+
 class ChatPage extends Component {
 
   @field(ChatForm)
@@ -38,6 +48,9 @@ class ChatPage extends Component {
 
   @field(Component, {css:"h4"})
   title: Component;
+
+  @field(List, { qa:"messages", itemQA:"message", itemType:Message })
+  messageList: List<Message>;
 
 }
 
@@ -53,6 +66,9 @@ describe("example", () => {
     chatPage.userForm.sendAction.click();
     expect(chatPage.userForm.isNotVisible()).toBe(true);
     expect(chatPage.chatForm.isVisible()).toBe(true);
+    chatPage.chatForm.message.type("Hi everyone");
+    chatPage.chatForm.sendAction.click();
+    expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
   })
 
 
