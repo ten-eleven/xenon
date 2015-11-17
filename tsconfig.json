@@ -12,8 +12,8 @@
         "typings/tsd.d.ts"
     ],
     "files": [
+        "src/ComponentAnnotations.ts",
         "src/index.ts",
-        "src/SelectorAnnotations.ts",
         "src/Selectors.ts",
         "test/e2e/specs/TestSpec.ts",
         "test/unit/specs/TestSpec.ts",
