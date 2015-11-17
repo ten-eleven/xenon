@@ -1,5 +1,4 @@
-import {Selector,QASelector,CSSSelector} from "./Selectors"
-
+import {Selector,QASelector,CSSSelector} from "./Selectors";
 
 export class Component {
   constructor(parent?:Component) {

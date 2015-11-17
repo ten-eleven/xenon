@@ -1,4 +1,5 @@
-import {Component, Input, Button, QASelector, CSSSelector} from "../../../src/index";
+import {Component, Input, Button} from "../../../src/index";
+import {QASelector,CSSSelector} from "../../../src/Selectors";
 
 class ChatForm extends Component {
 
