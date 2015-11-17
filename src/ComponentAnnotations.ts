@@ -9,7 +9,7 @@ var initBuilder = function(target:any, propKey) {
 
 function createAnnotation<T>(field) {
   return function(param:T){
-    return function(target:any, propKey:string) {      
+    return function(target:any, propKey:string) {
       var annotation = initBuilder(target, propKey)
       annotation[field] = param
     }
@@ -18,3 +18,4 @@ function createAnnotation<T>(field) {
 export var css = createAnnotation<string>("css")
 export var qa = createAnnotation<string>("qa")
 export var state = createAnnotation<any>("state")
+export var type = createAnnotation<any>("type")

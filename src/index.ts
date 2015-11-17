@@ -3,7 +3,25 @@ import {Selector,QASelector,CSSSelector} from "./Selectors";
 export class Component {
   selector:Selector
   parent:Component
+
   constructor(parent?:Component) {
+    this._autoConstruct()
+  }
+
+  _autoConstruct(){
+    var builders
+    if(builders = this.constructor.prototype._builders) {
+      for(var k in builders) {
+        var def = builders[k]
+        var component = this[k] = new (def.type || Component)(this)
+        for(var defKey in def){
+          if(typeof component[defKey] === 'function') {
+            component[defKey](def[defKey])
+          }
+        }
+      }
+    }
+
   }
 
   qa(qaString) {
