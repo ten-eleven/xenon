@@ -28,11 +28,11 @@ testMiddleware = function(req,res, next) {
 
 }
 
-testApp.configure(function() {
-  testApp.use(express.static(testAppDir));
-  testApp.use(express.json());
-  testApp.use(testMiddleware);
-});
+// testApp.configure(function() {
+testApp.use(express.static(testAppDir));
+testApp.use(express.json());
+testApp.use(testMiddleware);
+// });
 
 module.exports = {
   start: function (optionalPort) {
