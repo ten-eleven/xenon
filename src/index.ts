@@ -15,7 +15,7 @@ export class Component {
         var def = builders[k]
         var component = this[k] = new (def.type || Component)(this)
         for(var defKey in def){
-          if(typeof component[defKey] === 'function') {
+          if(typeof component[defKey] === 'function' && defKey !== 'type') {
             component[defKey](def[defKey])
           }
         }
@@ -90,7 +90,7 @@ export class Input extends Component {
     super(parent);
   }
 
-  typeValue (value:string):void {
+  type(value:string):void {
     this.getElement().clear();
     this.getElement().sendKeys(value);
   }
