@@ -1,0 +1,26 @@
+{
+  "name": "ProtractorPageObject",
+  "version": "1.0.0",
+  "description": "Protractor Page Object Framework",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsc"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.10.0",
+    "express": "^3.21.2",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-protractor": "^1.0.0",
+    "gulp-typescript": "^2.9.2",
+    "jasmine": "^2.3.2",
+    "merge2": "^0.3.6",
+    "mocha": "^2.3.3",
+    "typescript-require": "^0.2.9"
+  },
+  "dependencies": {
+    "typescript": "^1.6.2"
+  }
+}
