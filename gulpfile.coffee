@@ -24,7 +24,7 @@ gulp.task 'typescript-test',['test-rm'], ->
     .pipe(gulp.dest("tmp/e2e-tests"))
 
 gulp.task "e2e", ->
-  gulp.src("./tmp/e2e-tests/TestSpec.js")
+  gulp.src("./test/e2e/specs/TestSpec.ts")
     .pipe(protractor({
         configFile:"./test/e2e/config/protractor.conf.js"
     }))
