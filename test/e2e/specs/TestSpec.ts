@@ -1,58 +1,43 @@
 import {Component, Input, Button} from "../../../src/index";
 import {QASelector,CSSSelector} from "../../../src/Selectors";
-import {qa, css, type} from "../../../src/ComponentAnnotations";
+import {defaults, field} from "../../../src/ComponentAnnotations";
 
+@defaults({qa:"chat-form"})
 class ChatForm extends Component {
 
-  @type(Input) @qa("message")
+  @field(Input, {qa:"message"})
   message: Input;
 
-  @type(Button) @css("#sendMessage")
+  @field(Button, {css:"#sendMessage"})
   sendAction: Button;
 
-  @type(Button) @css("#missingAction")
+  @field(Button, {css:"#missingAction"})
   missingAction: Button;
 
-
-  constructor (parent:Component) {
-    super(parent);
-    this.qa("chat-form");
-    // this.message = new Input(this).qa("message");
-    // this.sendAction = new Button(this).css("#sendMessage");
-    // this.missingAction = new Button(this).css("#missingAction");
-  }
 }
 
+@defaults({qa:"user-form"})
 class UserForm extends Component {
 
-  @type(Input) @qa("username")
+  @field(Input, {qa:"username"})
   username: Input;
-  @type(Button) @qa("send-action")
+
+  @field(Button, {qa:"send-action"})
   sendAction: Button;
-  constructor (parent:Component) {
-    super(parent);
-    this.qa("user-form");
-    // this.username = new Input(this).qa("username");
-    // this.sendAction = new Button(this).css("#send-action");
-  }
 
 }
 
 class ChatPage extends Component {
 
-  @type(ChatForm)
+  @field(ChatForm)
   chatForm: ChatForm;
 
-  @type(UserForm)
+  @field(UserForm)
   userForm: UserForm;
 
+  @field(Component)
   title: Component;
 
-  // constructor () {
-  //   super();
-  //   this.chatForm = new ChatForm(this);
-  //   this.userForm = new UserForm(this);
-  // }
 }
 
 describe("example", () => {

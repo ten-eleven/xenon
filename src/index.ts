@@ -2,26 +2,33 @@ import {Selector,QASelector,CSSSelector} from "./Selectors";
 
 export class Component {
   selector:Selector;
-  parent:Component;
 
-  constructor(parent?:Component) {
+  constructor(public parent?:Component) {
     this._autoConstruct();
   }
 
   _autoConstruct(){
-    var builders
+    var builders, defaults
     if(builders = this.constructor.prototype._builders) {
       for(var k in builders) {
         var def = builders[k]
         var component = this[k] = new (def.type || Component)(this)
-        for(var defKey in def){
-          if(typeof component[defKey] === 'function' && defKey !== 'type') {
-            component[defKey](def[defKey])
-          }
-        }
+        component.setMultiple(def.setters)
       }
     }
 
+    if(defaults = this.constructor.prototype.defaults){
+      this.setMultiple(defaults)
+    }
+
+  }
+
+  setMultiple(props){
+    for(var k in props){
+      if(typeof this[k] === 'function') {
+        this[k](props[k])
+      }
+    }
   }
 
   qa(qaString) {
@@ -48,7 +55,11 @@ export class Component {
   getElement():protractor.WebElementPromise {
     var ancestors = this.getAncestors();
     var reducer = function (currentElement, component:Component) {
-      return component.selector.toElement(currentElement);
+      if(component.selector){
+        return component.selector.toElement(currentElement);
+      } else {
+        return currentElement
+      }
     }
     var nullElement = {element:browser.element};
     return ancestors.reduce(reducer, nullElement);
