@@ -31,6 +31,8 @@ export class Component {
     for(var k in props){
       if(typeof this[k] === 'function') {
         this[k](props[k])
+      } else {
+        this[k] = props[k]
       }
     }
   }
@@ -143,10 +145,15 @@ export class Button extends Component {
   }
 }
 
-export class List<T> extends Component {
+interface ComponentClass<T extends Component> {
+  create(component:Component, options:any):T;
+  new(component:Component):T
+}
+
+export class List<T extends Component> extends Component {
 
   itemSelector:Selector;
-  itemType:{create(component:Component, options:{}):T};
+  itemType:ComponentClass<T>
 
   itemQA(value:string) {
     this.itemSelector = new QASelector(value);
@@ -158,7 +165,8 @@ export class List<T> extends Component {
 
   get(index):T {
     let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
-    return this.itemType.create(this, {selector:selector});
+    var componentType = new this.itemType(this).setSelector(selector)
+    return <T>componentType
   }
 
 }
