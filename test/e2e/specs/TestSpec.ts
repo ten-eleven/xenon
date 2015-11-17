@@ -69,6 +69,7 @@ describe("example", () => {
     chatPage.chatForm.message.type("Hi everyone");
     chatPage.chatForm.sendAction.click();
     expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
+    expect(chatPage.messageList.count()).toBe(1);
   })
 
 

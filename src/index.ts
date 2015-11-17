@@ -165,8 +165,13 @@ export class List<T extends Component> extends Component {
 
   get(index):T {
     let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
-    var componentType = new this.itemType(this).setSelector(selector)
+    let componentType = new this.itemType(this).setSelector(selector);
     return <T>componentType
+  }
+
+  count():number {
+    let elem:any = this.getElement()
+    return elem.all(this.itemSelector.toLocator()).count();
   }
 
 }
