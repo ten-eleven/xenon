@@ -7,12 +7,11 @@ export class Component {
   }
 
   qa(qaString) {
-    this.selector = new QASelector(qaString)
-    return this
+    return this.setSelector(new QASelector(qaString))
   }
+  
   css(cssString) {
-    this.selector = new CSSSelector(cssString)
-    return this
+    return this.setSelector(new CSSSelector(cssString))
   }
   setSelector(selector:Selector) {
     this.selector = selector
@@ -34,7 +33,7 @@ export class Component {
       return component.selector.toElement(currentElement)
     }
     var nullElement = {element:browser.element}
-    return ancestors.reduce(reducer, nullElement)  
+    return ancestors.reduce(reducer, nullElement)
   }
 }
 
