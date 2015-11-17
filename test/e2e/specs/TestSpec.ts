@@ -33,7 +33,7 @@ class Message extends Component {
   @field(Component, {qa:"message--msg"})
   msg:Component;
 
-  @field(Component, {qa:"message--msg"})
+  @field(Component, {qa:"message--user"})
   user:Component;
 
 }
@@ -70,6 +70,7 @@ describe("example", () => {
     chatPage.chatForm.sendAction.click();
     expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
     expect(chatPage.messageList.count()).toBe(1);
+    expect(chatPage.messageList.getByText("Hi everyone").user.getText()).toBe("bob");
   })
 
 

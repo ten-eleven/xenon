@@ -1,4 +1,4 @@
-import {Selector,QASelector,CSSSelector,CSSIndexSelector} from "./Selectors";
+import {Selector,QASelector,CSSSelector,CSSIndexSelector, CSSTextSelector} from "./Selectors";
 
 export class Component {
   selector:Selector;
@@ -166,12 +166,18 @@ export class List<T extends Component> extends Component {
   get(index):T {
     let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
     let componentType = new this.itemType(this).setSelector(selector);
-    return <T>componentType
+    return <T>componentType;
   }
 
   count():number {
     let elem:any = this.getElement()
     return elem.all(this.itemSelector.toLocator()).count();
+  }
+
+  getByText(text:string, exactTextMatch:boolean=true):T {
+    let selector = new CSSTextSelector(this.itemSelector.locatorCSS(), text, exactTextMatch );
+    let componentType = new this.itemType(this).setSelector(selector);
+    return <T>componentType;
   }
 
 }
