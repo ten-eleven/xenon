@@ -13,8 +13,9 @@ class ChatForm extends Component {
   @css("#missingAction")
   missingAction: Button;
 
-  constructor () {
-    super();
+  constructor (parent:Component) {
+    super(parent);
+    this.qa("chat-form");
     this.message = new Input(this).qa("message")
     this.sendAction = new Button(this).css("#sendMessage")
     this.missingAction = new Button(this).css("#missingAction")
@@ -28,19 +29,31 @@ class UserForm extends Component {
   username: Input;
   sendAction: Button;
 
-  constructor () {
-    super();
+  constructor (parent:Component) {
+    super(parent);
+    this.qa("user-form");
     this.username = new Input(this).qa("username")
     this.sendAction = new Button(this).css("#send-action")
   }
 
 }
 
+class ChatPage extends Component {
+  chatForm: ChatForm;
+  userForm: UserForm;
+  title: Component;
+
+  constructor () {
+    super();
+    this.chatForm = new ChatForm(this);
+    this.userForm = new UserForm(this);
+  }
+}
+
 describe("example", () => {
   it("should pass", () => {
     browser.get("http://localhost:3002")
-    let chatForm:ChatForm = new ChatForm();
-    let userForm:UserForm = new UserForm();
-    expect(userForm.username.isVisible(5000)).toBe(true);
+    let chatPage:ChatPage = new ChatPage();
+    expect(chatPage.userForm.username.isVisible(5000)).toBe(true);
   })
 })
