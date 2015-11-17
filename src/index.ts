@@ -4,10 +4,10 @@ export class Component {
   selector:Selector;
 
   constructor(public parent?:Component) {
-    this._autoConstruct();
+    this.autoConstruct();
   }
 
-  _autoConstruct(){
+  private autoConstruct(){
     var builders, defaults
     if(builders = this.constructor.prototype._builders) {
       for(var k in builders) {
@@ -23,7 +23,7 @@ export class Component {
 
   }
 
-  setMultiple(props){
+  private setMultiple(props){
     for(var k in props){
       if(typeof this[k] === 'function') {
         this[k](props[k])
@@ -47,7 +47,7 @@ export class Component {
     return null;
   }
 
-  getAncestors():Component[]{
+  private getAncestors():Component[]{
     var ancestors = this.parent ? this.parent.getAncestors() : []
     return ancestors.concat([this])
   }
