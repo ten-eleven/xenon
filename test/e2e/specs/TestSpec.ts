@@ -9,9 +9,9 @@ class ChatForm extends Component {
 
   constructor () {
     super();
-    this.message = new Input(this, new QASelector("message"))
-    this.sendAction = new Button(this, new CSSSelector("#sendMessage"));
-    this.missingAction = new Button(this, new CSSSelector("#missingAction"));
+    this.message = new Input(this).qa("message")
+    this.sendAction = new Button(this).css("#sendMessage")
+    this.missingAction = new Button(this).css("#missingAction")
   }
 
 }
