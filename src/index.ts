@@ -26,6 +26,30 @@ export class Component {
   getElement():protractor.WebElementPromise {
     return null;
   }
+
+  isDisplayed():webdriver.promise.Promise<boolean> {
+    return this.getElement().isDisplayed();
+  }
+
+  scrollIntoView():webdriver.promise.Promise<{}> {
+    return browser.executeScript("arguments[0].scrollIntoView(true);", this.getElement());
+  }
+
+  isVisible(timeout:number):webdriver.promise.Promise<boolean> {
+    let visibleCheckFn:any = () => {
+      return browser.isElementPresent(this.getElement())
+        .then((isPresent:Boolean) => {
+          if (isPresent) {
+            return this.scrollIntoView().then(() => {
+              return this.getElement().isDisplayed();
+            })
+          } else {
+            return false;
+          }
+        })
+    };
+    return browser.wait(visibleCheckFn, timeout);
+  }
 }
 
 export class Input extends Component {
