@@ -61,12 +61,22 @@ export class Component {
     };
     return browser.wait(visibleCheckFn, timeout);
   }
+
+  click():void {
+    this.getElement().click();
+  }
 }
 
 export class Input extends Component {
   constructor(parent:Component) {
     super(parent);
   }
+
+  type (value:string):void {
+    this.getElement().clear();
+    this.getElement().sendKeys(value);
+  }
+
 }
 
 export class Button extends Component {
