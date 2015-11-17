@@ -1,7 +1,8 @@
+import {TestPage} from "../../../src/index";
 
 describe("example", () => {
   it("should pass", () => {
-    browser.get("http://localhost:3002/")
-    browser.sleep(20000)
+    var testPage = new TestPage();
+    testPage.open();
   })
 })
