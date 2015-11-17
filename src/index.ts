@@ -7,6 +7,10 @@ export class Component {
     this.autoConstruct();
   }
 
+  static create(parent, options){
+    return new this(parent).setMultiple(options)
+  }
+
   private autoConstruct(){
     var builders, defaults
     if(builders = this.constructor.prototype._builders) {
