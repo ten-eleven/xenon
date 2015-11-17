@@ -16,10 +16,9 @@ class ChatForm extends Component {
   constructor (parent:Component) {
     super(parent);
     this.qa("chat-form");
-    this.message = new Input(this).qa("message")
-    this.sendAction = new Button(this).css("#sendMessage")
-    this.missingAction = new Button(this).css("#missingAction")
-    console.log(this)
+    this.message = new Input(this).qa("message");
+    this.sendAction = new Button(this).css("#sendMessage");
+    this.missingAction = new Button(this).css("#missingAction");
   }
 
 }
@@ -32,8 +31,8 @@ class UserForm extends Component {
   constructor (parent:Component) {
     super(parent);
     this.qa("user-form");
-    this.username = new Input(this).qa("username")
-    this.sendAction = new Button(this).css("#send-action")
+    this.username = new Input(this).qa("username");
+    this.sendAction = new Button(this).css("#send-action");
   }
 
 }
