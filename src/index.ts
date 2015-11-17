@@ -1,7 +1,6 @@
 
 export class Component {
-  constructor(parent:Component) {
-
+  constructor(parent?:Component) {
   }
 }
 
@@ -23,10 +22,12 @@ class Selector {
 
 export class QASelector extends Selector {
   constructor(qaSelector:String) {
+    super();
   }
 }
 
 export class CSSSelector extends Selector {
   constructor(qaSelector:String) {
+    super();
   }
 }
