@@ -23,11 +23,24 @@ class ChatForm extends Component {
 
 }
 
+class UserForm extends Component {
+
+  username: Input;
+  sendAction: Button;
+
+  constructor () {
+    super();
+    this.username = new Input(this).qa("username")
+    this.sendAction = new Button(this).css("#send-action")
+  }
+
+}
+
 describe("example", () => {
   it("should pass", () => {
     browser.get("http://localhost:3002")
-    var chatForm:ChatForm = new ChatForm();
-    console.log(ChatForm.prototype)
-    // console.log(chatForm.message.getElement())
+    let chatForm:ChatForm = new ChatForm();
+    let userForm:UserForm = new UserForm();
+    expect(userForm.username.isVisible(5000)).toBe(true);
   })
 })

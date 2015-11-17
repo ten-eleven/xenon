@@ -35,6 +35,32 @@ export class Component {
     var nullElement = {element:browser.element}
     return ancestors.reduce(reducer, nullElement)
   }
+
+  isDisplayed():webdriver.promise.Promise<boolean> {
+    return this.getElement().isDisplayed();
+  }
+
+  scrollIntoView():webdriver.promise.Promise<{}> {
+    let scrollIntoView = (element:any) => {
+      element.scrollIntoView(true);
+    }
+
+    let element:any = this.getElement();
+    return browser.executeScript(scrollIntoView, element.getWebElement());
+  }
+
+  isVisible(timeout:number):webdriver.promise.Promise<boolean> {
+    let self = this;
+    let visibleCheckFn:any = () => {
+      return browser.isElementPresent(self.getElement())
+        .then((isPresent:Boolean) => {
+          return self.scrollIntoView().then(() => {
+            return self.getElement().isDisplayed();
+          })
+        })
+    };
+    return browser.wait(visibleCheckFn, timeout);
+  }
 }
 
 export class Input extends Component {
