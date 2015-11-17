@@ -9,7 +9,7 @@ export class Component {
   qa(qaString) {
     return this.setSelector(new QASelector(qaString))
   }
-  
+
   css(cssString) {
     return this.setSelector(new CSSSelector(cssString))
   }
