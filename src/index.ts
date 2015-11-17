@@ -62,19 +62,44 @@ export class Component {
     let scrollIntoView = (element:any) => {
       element.scrollIntoView(true);
     }
-
+    // get around the outofdate def file by using any type
     let element:any = this.getElement();
     return browser.executeScript(scrollIntoView, element.getWebElement());
   }
 
-  isVisible(timeout:number):webdriver.promise.Promise<boolean> {
+  getText(): webdriver.promise.Promise<string> {
+    return this.getElement().getText();
+  }
+
+  isVisible(timeout:number=5000):webdriver.promise.Promise<boolean> {
     let self = this;
     let visibleCheckFn:any = () => {
       return browser.isElementPresent(self.getElement())
         .then((isPresent:Boolean) => {
-          return self.scrollIntoView().then(() => {
-            return self.getElement().isDisplayed();
-          })
+          if (isPresent) {
+            return self.scrollIntoView().then(() => {
+              return self.getElement().isDisplayed();
+            })
+          };
+          return false;
+        })
+    };
+    return browser.wait(visibleCheckFn, timeout);
+  }
+
+  isNotVisible(timeout:number=5000):webdriver.promise.Promise<boolean> {
+    let self = this;
+    let visibleCheckFn:any = () => {
+      return browser.isElementPresent(self.getElement())
+        .then((isPresent:Boolean) => {
+          if (isPresent) {
+            return self.scrollIntoView().then(() => {
+              return self.getElement().isDisplayed().then((displayed:boolean) => {
+                return !displayed;
+              })
+            })
+          };
+          return true;
         })
     };
     return browser.wait(visibleCheckFn, timeout);
