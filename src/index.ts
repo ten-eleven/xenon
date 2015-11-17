@@ -146,25 +146,19 @@ export class Button extends Component {
 export class List<T> extends Component {
 
   itemSelector:Selector;
-  itemType:Component;
+  itemType:{create(component:Component, options:{}):T};
 
-  constructor(parent:Component) {
-    super(parent);
-  }
-
-  itemQA (value:string) {
+  itemQA(value:string) {
     this.itemSelector = new QASelector(value);
   }
 
-  itemCSS (value:string) {
+  itemCSS(value:string) {
     this.itemSelector = new CSSSelector(value);
   }
 
   get(index):T {
     let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
-    let itemComponent = this.itemType.create();
-    itemComponent.selector = selector;
-    return itemComponent;
+    return this.itemType.create(this, {selector:selector});
   }
 
 }
