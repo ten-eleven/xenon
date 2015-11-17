@@ -1,16 +1,13 @@
 
 export class Selector {
-  parent:Selector
-  constructor(public value:string) {
 
-  }
-  setParent(parent:Selector) {
-    this.parent = parent
+  constructor(public value:string) {
   }
 
   locatorCSS() {
     return ""
   }
+
   toLocator() {
     return By.css(this.locatorCSS())
   }
