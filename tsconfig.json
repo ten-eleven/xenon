@@ -13,6 +13,7 @@
     ],
     "files": [
         "src/index.ts",
+        "src/Selectors.ts",
         "test/e2e/specs/TestSpec.ts",
         "test/unit/specs/TestSpec.ts",
         "typings/tsd.d.ts"

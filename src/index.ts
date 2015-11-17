@@ -1,6 +1,12 @@
+import {Selector,QASelector,CSSSelector} from "./Selectors"
+
 
 export class Component {
   constructor(parent?:Component) {
+  }
+
+  waitUntilPresent():protractor.WebElementPromise {
+    return null
   }
 }
 
@@ -13,21 +19,5 @@ export class Input extends Component {
 export class Button extends Component {
   constructor(parent:Component, selector:Selector) {
     super(parent);
-  }
-}
-
-class Selector {
-
-}
-
-export class QASelector extends Selector {
-  constructor(qaSelector:String) {
-    super();
-  }
-}
-
-export class CSSSelector extends Selector {
-  constructor(qaSelector:String) {
-    super();
   }
 }
