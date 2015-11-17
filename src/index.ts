@@ -20,7 +20,11 @@ export class Component {
   }
 
   waitUntilPresent():protractor.WebElementPromise {
-    return null
+    return null;
+  }
+
+  getElement():protractor.WebElementPromise {
+    return null;
   }
 }
 
