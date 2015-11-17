@@ -54,5 +54,9 @@ describe("example", () => {
     browser.get("http://localhost:3002")
     let chatPage:ChatPage = new ChatPage();
     expect(chatPage.userForm.username.isVisible(5000)).toBe(true);
+    chatPage.userForm.username.type("bob");
+    chatPage.userForm.sendAction.click();
+    expect(chatPage.userForm.isDisplayed()).toBe(false);
+    expect(chatPage.chatForm.isVisible(5000)).toBe(true);
   })
 })
