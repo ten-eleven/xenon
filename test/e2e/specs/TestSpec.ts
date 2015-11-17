@@ -20,5 +20,6 @@ describe("example", () => {
   it("should pass", () => {
     browser.get("http://localhost:3002")
     var chatForm:ChatForm = new ChatForm();
+    console.log(chatForm.message.getElement())
   })
 })
