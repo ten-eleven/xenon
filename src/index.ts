@@ -90,7 +90,7 @@ export class Input extends Component {
     super(parent);
   }
 
-  type (value:string):void {
+  typeValue (value:string):void {
     this.getElement().clear();
     this.getElement().sendKeys(value);
   }
