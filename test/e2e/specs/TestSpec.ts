@@ -71,6 +71,7 @@ describe("example", () => {
     expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
     expect(chatPage.messageList.count()).toBe(1);
     expect(chatPage.messageList.getByText("Hi everyone").user.getText()).toBe("bob");
+
   })
 
 

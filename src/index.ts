@@ -88,38 +88,28 @@ export class Component {
     return this.getElement().getText();
   }
 
-  isVisible(timeout:number=5000):webdriver.promise.Promise<boolean> {
-    let self = this;
-    let visibleCheckFn:any = () => {
-      return browser.isElementPresent(self.getElement())
-        .then((isPresent:Boolean) => {
-          if (isPresent) {
-            return self.scrollIntoView().then(() => {
-              return self.getElement().isDisplayed();
+  private isVisibleCheck(shouldBeVisible:boolean){ return ():any=> {
+    var self = this
+    return browser.isElementPresent(self.getElement())
+      .then((isPresent:Boolean) => {
+        if (isPresent) {
+          return self.scrollIntoView().then(() => {
+            return self.getElement().isDisplayed().then((isDisplayed)=> {
+              return isDisplayed === shouldBeVisible
             })
-          };
-          return false;
-        })
-    };
-    return browser.wait(visibleCheckFn, timeout);
+          })
+        };
+        return false === shouldBeVisible;
+      })
+  }}
+
+
+  isVisible(timeout:number=5000):webdriver.promise.Promise<boolean> {
+    return browser.wait(this.isVisibleCheck(true), timeout);
   }
 
   isNotVisible(timeout:number=5000):webdriver.promise.Promise<boolean> {
-    let self = this;
-    let visibleCheckFn:any = () => {
-      return browser.isElementPresent(self.getElement())
-        .then((isPresent:Boolean) => {
-          if (isPresent) {
-            return self.scrollIntoView().then(() => {
-              return self.getElement().isDisplayed().then((displayed:boolean) => {
-                return !displayed;
-              })
-            })
-          };
-          return true;
-        })
-    };
-    return browser.wait(visibleCheckFn, timeout);
+    return browser.wait(this.isVisibleCheck(false), timeout);
   }
 
   click():void {
@@ -163,7 +153,7 @@ export class List<T extends Component> extends Component {
     this.itemSelector = new CSSSelector(value);
   }
 
-  get(index):T {
+  get(index:number):T {
     let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
     let componentType = new this.itemType(this).setSelector(selector);
     return <T>componentType;
