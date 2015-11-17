@@ -1,6 +1,9 @@
 
 export class Selector {
   parent:Selector
+  constructor(public value:string) {
+
+  }
   setParent(parent:Selector) {
     this.parent = parent
   }
@@ -23,13 +26,13 @@ export class Selector {
 }
 
 export class QASelector extends Selector {
-  constructor(qaSelector:String) {
-    super()
+  locatorCSS() {
+    return `[data-qa="${this.value}"]`
   }
 }
 
 export class CSSSelector extends Selector {
-  constructor(qaSelector:String) {
-    super()
+  locatorCSS(){
+    return this.value
   }
 }
