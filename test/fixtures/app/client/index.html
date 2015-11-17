@@ -1,0 +1,37 @@
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+    <link rel="stylesheet" href="app.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="InteractionCtrl">
+    <div data-qa="chat-page">
+      <h4>A simple chat system</h4>
+
+      <form ng-show="!user" data-qa="user-form">
+        <input ng-model="userInput" placeholder="enter a username" type="text" data-qa="username"/>
+        <button id="sendUser" ng-disabled="!userInput" ng-click="sendUser()" data-qa="send-action">Ok</button>
+      </form>
+
+      <div id="chat-box" ng-show="user" data-qa="chat-box">
+        <div data-qa="messages">
+          <div ng-repeat="msg in messages track by $index" data-qa="message">
+            <div data-qa="message--user">{{msg.user}}</div>
+            <div data-qa="message--msg">{{msg.msg}}</div>
+        </div>
+      </div>
+
+      <form ng-show="user" data-qa="chat-form">
+        <input ng-model="message" placeholder="Enter a message" type="text" data-qa="message"/>
+        <button id="sendMessage" ng-disabled="!message" ng-click="sendMessage()" data-qa="send-action">Send</button>
+        <button id="clearMessages" ng-click="clearMessages()" data-qa="clear-action">Clear all messages</button>
+      </form>
+
+    </div>
+
+  </body>
+
+</html>
