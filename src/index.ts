@@ -1,11 +1,11 @@
 import {Selector,QASelector,CSSSelector} from "./Selectors";
 
 export class Component {
-  selector:Selector
-  parent:Component
+  selector:Selector;
+  parent:Component;
 
   constructor(parent?:Component) {
-    this._autoConstruct()
+    this._autoConstruct();
   }
 
   _autoConstruct(){
@@ -46,12 +46,12 @@ export class Component {
   }
 
   getElement():protractor.WebElementPromise {
-    var ancestors = this.getAncestors()
+    var ancestors = this.getAncestors();
     var reducer = function (currentElement, component:Component) {
-      return component.selector.toElement(currentElement)
+      return component.selector.toElement(currentElement);
     }
-    var nullElement = {element:browser.element}
-    return ancestors.reduce(reducer, nullElement)
+    var nullElement = {element:browser.element};
+    return ancestors.reduce(reducer, nullElement);
   }
 
   isDisplayed():webdriver.promise.Promise<boolean> {
