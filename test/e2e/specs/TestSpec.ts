@@ -36,7 +36,12 @@ class UserForm extends Component {
 
 }
 
+@defaults({states:Message.states})
 class Message extends Component {
+
+  public static states = {
+    LATEST: "latest"
+  }
 
   @field(Component, {qa:"message--msg"})
   msg:Component;
@@ -98,7 +103,9 @@ describe("example", () => {
     chatPage.menu.selectOption("logout");
     chatPage.userForm.login("joe");
     chatPage.chatForm.sendMessage("new reply");
-    expect(chatPage.messageList.get(0).user.getText()).toBe("joe");
+    let firstReply = chatPage.messageList.get(0)
+    expect(firstReply.user.getText()).toBe("joe");
+    expect(firstReply.is(Message.states.LATEST)).toBe(true)
 
   })
 

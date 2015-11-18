@@ -12,7 +12,7 @@ export type ComponentType = ComponentClass<any>
 interface ComponentOptions {
   css?:string
   qa?:string
-  state?:Object
+  states?:Object
 }
 
 interface FieldOptions extends ComponentOptions {

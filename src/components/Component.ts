@@ -7,6 +7,7 @@ export interface ComponentClass<T extends Component> {
 
 export default class Component {
   selector:Selector;
+  private states:{};
 
   constructor(public parent?:Component) {
     this.autoConstruct();
@@ -144,5 +145,13 @@ export default class Component {
 
   click():void {
     this.getElement().click();
+  }
+
+  is(stateName:string):webdriver.promise.Promise<boolean> {
+    let stateValue:string = this.states[stateName];
+    return this.getElement().getAttribute("class").then((classNames:string) => {
+      let classNamesArray:Array<string> = classNames.split(" ");
+      return !!(classNamesArray.indexOf(stateValue))
+    })
   }
 }
