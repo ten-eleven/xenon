@@ -17,8 +17,7 @@
     "gulp-typescript": "^2.9.2",
     "jasmine": "^2.3.2",
     "merge2": "^0.3.6",
-    "mocha": "^2.3.3",
-    "typescript-require": "^0.2.9"
+    "mocha": "^2.3.3"
   },
   "dependencies": {
     "ts-node": "^0.5.3",
