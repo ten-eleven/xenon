@@ -1,4 +1,4 @@
-import {Selector,QASelector,CSSSelector,CSSIndexSelector, CSSTextSelector} from "./Selectors";
+import {Selector,QASelector,CSSSelector,CSSIndexSelector, CSSTextSelector} from "./selectors";
 
 export class Component {
   selector:Selector;
@@ -87,6 +87,8 @@ export class Component {
   getText(): webdriver.promise.Promise<string> {
     return this.getElement().getText();
   }
+
+
 
   selectOption(value:string):void {
     let selectList:any = this.getElement();

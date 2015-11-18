@@ -1,5 +1,4 @@
 import {Component, Input, Button, List} from "../../../src/index";
-import {QASelector,CSSSelector} from "../../../src/Selectors";
 import {defaults, field} from "../../../src/ComponentAnnotations";
 
 @defaults({qa:"chat-form"})

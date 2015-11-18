@@ -7,16 +7,11 @@
         "experimentalDecorators": true
     },
     "filesGlob": [
-        "src/**/*.ts",
-        "test/**/*.ts",
-        "typings/tsd.d.ts"
+        "./src/**/*.ts",
+        "./test/**/*.ts",
+        "./typings/tsd.d.ts"
     ],
     "files": [
-        "src/ComponentAnnotations.ts",
-        "src/index.ts",
-        "src/Selectors.ts",
-        "test/e2e/specs/TestSpec.ts",
-        "test/unit/specs/TestSpec.ts",
-        "typings/tsd.d.ts"
+      "./src/selectors/Index.ts"
     ]
 }

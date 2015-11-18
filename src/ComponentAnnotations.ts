@@ -1,5 +1,4 @@
 import {Component} from "./index"
-import {CSSSelector} from "./Selectors";
 
 var initBuilder = function(target:any, propKey) {
   target._builders = target._builders || {}
