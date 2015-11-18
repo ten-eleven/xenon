@@ -12,6 +12,20 @@
         "./typings/tsd.d.ts"
     ],
     "files": [
-      "./src/selectors/Index.ts"
+        "./src/components/Button.ts",
+        "./src/components/Component.ts",
+        "./src/components/ComponentAnnotations.ts",
+        "./src/components/Index.ts",
+        "./src/components/Input.ts",
+        "./src/components/List.ts",
+        "./src/selectors/CSSIndexSelector.ts",
+        "./src/selectors/CSSSelector.ts",
+        "./src/selectors/CSSTextSelector.ts",
+        "./src/selectors/Index.ts",
+        "./src/selectors/QASelector.ts",
+        "./src/selectors/Selector.ts",
+        "./test/e2e/specs/TestSpec.ts",
+        "./test/unit/specs/TestSpec.ts",
+        "./typings/tsd.d.ts"
     ]
 }
