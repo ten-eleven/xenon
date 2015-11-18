@@ -1,4 +1,5 @@
 import Component from "./Component";
+import {ComponentClass} from "./Component";
 
 var initBuilder = function(target:any, propKey) {
   target._builders = target._builders || {}
@@ -6,7 +7,7 @@ var initBuilder = function(target:any, propKey) {
   return target._builders[propKey]
 }
 
-type ComponentClass = {new(component:Component):Component}
+export type ComponentType = ComponentClass<any>
 
 interface ComponentOptions {
   css?:string
@@ -17,10 +18,10 @@ interface ComponentOptions {
 interface FieldOptions extends ComponentOptions {
   itemQA?:string
   itemCSS?:string
-  itemType?:ComponentClass
+  itemType?:ComponentType
 }
 
-export function field(componentClass:ComponentClass, options:FieldOptions = {}){
+export function field(componentClass:ComponentType, options:FieldOptions = {}){
   return function(target:any, propKey:string){
     var annotation = initBuilder(target, propKey)
     annotation.type = componentClass
