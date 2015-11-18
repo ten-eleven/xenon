@@ -30,6 +30,10 @@ class UserForm extends Component {
   @field(Button, {qa:"send-action"})
   sendAction: Button;
 
+  login(name:string) {
+    this.username.type(name);
+    this.sendAction.click();
+  }
 
 }
 
@@ -44,6 +48,9 @@ class Message extends Component {
 }
 
 class ChatPage extends Component {
+
+  @field(Component, {qa:"options--select"})
+  menu: Component;
 
   @field(ChatForm)
   chatForm: ChatForm;
@@ -85,6 +92,18 @@ describe("example", () => {
 
     let secondMessage = chatPage.messageList.get(1);
     expect(secondMessage.user.getText()).toBe("bob");
+
+    chatPage.menu.selectOption("clear messages")
+    expect(chatPage.messageList.count()).toBe(0);
+
+    chatPage.chatForm.sendMessage("new reply");
+    expect(chatPage.messageList.count()).toBe(1);
+
+    chatPage.menu.selectOption("logout");
+    chatPage.userForm.login("joe");
+
+
+
 
   })
 

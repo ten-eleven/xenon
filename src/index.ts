@@ -88,6 +88,31 @@ export class Component {
     return this.getElement().getText();
   }
 
+  selectOption(value:string):void {
+    let selectList:any = this.getElement();
+    selectList.click();
+    let desiredOption:any = null;
+    selectList
+      .all(By.css("option"))
+      .then((options) => {
+        protractor.promise.fullyResolved(options.map((option:any) => {
+          option
+            .getText()
+            .then((t) => {
+              if (value == t) {
+                desiredOption = option;
+              }
+              return true;
+            })
+          }))
+        })
+        .then(() => {
+            if (desiredOption) {
+              desiredOption.click();
+            }
+          })
+  }
+
   private isVisibleCheck(shouldBeVisible:boolean){ return ():any=> {
     var self = this
     return browser.isElementPresent(self.getElement())

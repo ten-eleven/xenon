@@ -17,6 +17,16 @@
       </form>
 
       <div id="chat-box" ng-show="user" data-qa="chat-box">
+        <div data-qa="options">
+
+          <select ng-change="updateChanges()" ng-model="selectedOption" data-qa="options--select">
+            <option value="">Select Option</option>
+            <option value="clear">clear messages</option>
+            <option value="logout">logout</option>
+          </select>
+
+        </div>
+
         <div data-qa="messages">
           <div ng-repeat="msg in messages track by $index" data-qa="message">
             <div data-qa="message--user">{{msg.user}}</div>

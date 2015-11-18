@@ -4,8 +4,9 @@ angular.module('myApp', [])
 
   $scope.messages = [];
   $scope.message = "";
-  $scope.user = "";
+  $scope.user = null;
   $scope.userInput = "";
+  $scope.selectedOption = null;
 
   $scope.sendUser = function() {
     $scope.user = $scope.userInput;
@@ -37,6 +38,15 @@ angular.module('myApp', [])
     $scope.messages = [];
     saveMessages();
   };
+
+  $scope.updateChanges = function() {
+    if ($scope.selectedOption == "clear") {
+      $scope.clearMessages()
+    } else if ($scope.selectedOption == "logout") {
+      $scope.user = null;
+    }
+    $scope.selectedOption = null;
+  }
 
   $interval(function() {
     loadMessages();
