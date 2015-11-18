@@ -1,6 +1,6 @@
 {
-  "name": "ProtractorPageObject",
-  "version": "1.0.0",
+  "name": "protractor-page-object",
+  "version": "0.1.0",
   "description": "Protractor Page Object Framework",
   "main": "src/index.ts",
   "scripts": {
