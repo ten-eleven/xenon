@@ -16,7 +16,7 @@
             },
             "externalConsole": false,
             "sourceMaps": true,
-            "outDir": "dest"            
+            "outDir": "ts-dest"            
         }
     ]
 	

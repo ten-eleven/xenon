@@ -2,3 +2,4 @@ typings
 node_modules
 tmp
 dist
+ts-dest

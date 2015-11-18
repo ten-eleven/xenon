@@ -8,7 +8,7 @@ exports.config = {
   baseUrl: "http://localhost:3002/",
   framework: 'jasmine',
   specs: [
-    '../specs/*.ts'
+    '../../../ts-dest/test/e2e/specs/*.js'
   ],
 
   jasmineNodeOpts: {
