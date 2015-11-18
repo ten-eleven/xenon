@@ -1,5 +1,5 @@
-import {Component, Input, Button, List} from "../../../src/index";
-import {defaults, field} from "../../../src/ComponentAnnotations";
+import {Component, Input, Button, List} from "../../../src/components";
+import {defaults, field} from "../../../src/components/ComponentAnnotations";
 
 @defaults({qa:"chat-form"})
 class ChatForm extends Component {

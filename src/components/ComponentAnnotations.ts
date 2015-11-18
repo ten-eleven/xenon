@@ -1,4 +1,4 @@
-import {Component} from "./index"
+import Component from "./Component";
 
 var initBuilder = function(target:any, propKey) {
   target._builders = target._builders || {}
@@ -8,13 +8,13 @@ var initBuilder = function(target:any, propKey) {
 
 type ComponentClass = {new(component:Component):Component}
 
-export interface ComponentOptions {
+interface ComponentOptions {
   css?:string
   qa?:string
   state?:Object
 }
 
-export interface FieldOptions extends ComponentOptions {
+interface FieldOptions extends ComponentOptions {
   itemQA?:string
   itemCSS?:string
   itemType?:ComponentClass

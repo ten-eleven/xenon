@@ -1,6 +1,11 @@
-import {Selector,QASelector,CSSSelector,CSSIndexSelector, CSSTextSelector} from "./selectors";
+import {Selector, QASelector, CSSSelector} from "../selectors";
 
-export class Component {
+export interface ComponentClass<T extends Component> {
+  create(component:Component, options:any):T;
+  new(component:Component):T
+}
+
+export default class Component {
   selector:Selector;
 
   constructor(public parent?:Component) {
@@ -88,8 +93,6 @@ export class Component {
     return this.getElement().getText();
   }
 
-
-
   selectOption(value:string):void {
     let selectList:any = this.getElement();
     selectList.click();
@@ -142,59 +145,4 @@ export class Component {
   click():void {
     this.getElement().click();
   }
-}
-
-export class Input extends Component {
-  constructor(parent:Component) {
-    super(parent);
-  }
-
-  type(value:string):void {
-    this.getElement().clear();
-    this.getElement().sendKeys(value);
-  }
-
-}
-
-export class Button extends Component {
-  constructor(parent:Component) {
-    super(parent);
-  }
-}
-
-interface ComponentClass<T extends Component> {
-  create(component:Component, options:any):T;
-  new(component:Component):T
-}
-
-export class List<T extends Component> extends Component {
-
-  itemSelector:Selector;
-  itemType:ComponentClass<T>
-
-  itemQA(value:string) {
-    this.itemSelector = new QASelector(value);
-  }
-
-  itemCSS(value:string) {
-    this.itemSelector = new CSSSelector(value);
-  }
-
-  get(index:number):T {
-    let selector = new CSSIndexSelector(this.itemSelector.locatorCSS(), index);
-    let componentType = new this.itemType(this).setSelector(selector);
-    return <T>componentType;
-  }
-
-  count():number {
-    let elem:any = this.getElement()
-    return elem.all(this.itemSelector.toLocator()).count();
-  }
-
-  getByText(text:string, exactTextMatch:boolean=true):T {
-    let selector = new CSSTextSelector(this.itemSelector.locatorCSS(), text, exactTextMatch );
-    let componentType = new this.itemType(this).setSelector(selector);
-    return <T>componentType;
-  }
-
 }
