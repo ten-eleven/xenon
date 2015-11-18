@@ -7,7 +7,7 @@ export interface ComponentClass<T extends Component> {
 
 export default class Component {
   selector:Selector;
-  private states:{};
+  private states:Object;
 
   constructor(public parent?:Component) {
     this.autoConstruct();
