@@ -4,7 +4,7 @@
   "description": "Protractor Page Object Framework",
   "main": "src/index.ts",
   "scripts": {
-    "start": "tsc"
+    "test": "protractor test/e2e/config/protractor.conf.js"
   },
   "author": "",
   "license": "MIT",
