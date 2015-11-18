@@ -96,14 +96,10 @@ describe("example", () => {
     chatPage.menu.selectOption("clear messages")
     expect(chatPage.messageList.count()).toBe(0);
 
-    chatPage.chatForm.sendMessage("new reply");
-    expect(chatPage.messageList.count()).toBe(1);
-
     chatPage.menu.selectOption("logout");
     chatPage.userForm.login("joe");
-
-
-
+    chatPage.chatForm.sendMessage("new reply");
+    expect(chatPage.messageList.get(0).user.getText()).toBe("joe");
 
   })
 

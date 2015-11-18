@@ -42,7 +42,7 @@ export class CSSIndexSelector extends Selector {
 export class CSSTextSelector extends Selector {
   constructor(public value:string, public text:string, public exact:boolean) {
     super(value);
-    // if (By["cssExactText"] == null) {
+    if (By["cssExactText"] == null) {
 
       By.addLocator('cssExactText', (css,text,parent,root) => {
         let e = parent || document;
@@ -64,7 +64,7 @@ export class CSSTextSelector extends Selector {
           }
         })
       })
-    // }
+    }
   }
 
   toElement (element:protractor.ElementFinder) {
