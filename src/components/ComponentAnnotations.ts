@@ -1,5 +1,4 @@
-import Component from "./Component";
-import {ComponentClass} from "./Component";
+import Component, {ComponentClass} from "./Component";
 
 var initBuilder = function(target:any, propKey) {
   target._builders = target._builders || {}
@@ -9,13 +8,13 @@ var initBuilder = function(target:any, propKey) {
 
 export type ComponentType = ComponentClass<any>
 
-interface ComponentOptions {
+export interface ComponentOptions {
   css?:string
   qa?:string
   states?:Object
 }
 
-interface FieldOptions extends ComponentOptions {
+export interface FieldOptions extends ComponentOptions {
   itemQA?:string
   itemCSS?:string
   itemType?:ComponentType
