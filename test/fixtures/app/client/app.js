@@ -26,7 +26,7 @@ angular.module('myApp', [])
       key: 'chatMessages',
       value: $scope.messages
     }
-    $http.post('/storage', data);
+    return $http.post('/storage', data);
   };
 
   $scope.sendMessage = function() {
