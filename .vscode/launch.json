@@ -1,0 +1,23 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	 {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+			"program":"./node_modules/protractor/lib/cli.js",
+            "stopOnEntry": false,
+            "args": ["test/e2e/config/protractor.conf.js"],
+            "cwd": ".",
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+            ],
+            "env": {                
+            },
+            "externalConsole": false,
+            "sourceMaps": true,
+            "outDir": "dest"            
+        }
+    ]
+	
+}
