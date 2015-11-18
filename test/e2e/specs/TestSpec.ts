@@ -14,6 +14,11 @@ class ChatForm extends Component {
   @field(Button, {css:"#missingAction"})
   missingAction: Button;
 
+  sendMessage(message:string):void {
+    this.message.type(message);
+    this.sendAction.click();
+  }
+
 }
 
 @defaults({qa:"user-form"})
@@ -70,7 +75,16 @@ describe("example", () => {
     chatPage.chatForm.sendAction.click();
     expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
     expect(chatPage.messageList.count()).toBe(1);
-    expect(chatPage.messageList.getByText("Hi everyone").user.getText()).toBe("bob");
+
+    let firstMessage = chatPage.messageList.getByText("Hi everyon", false);
+    expect(firstMessage.user.getText()).toBe("bob");
+    expect(firstMessage.msg.getText()).toBe("Hi everyone");
+
+    chatPage.chatForm.sendMessage("new reply 2");
+    expect(chatPage.messageList.count()).toBe(2);
+
+    let secondMessage = chatPage.messageList.get(1);
+    expect(secondMessage.user.getText()).toBe("bob");
 
   })
 
