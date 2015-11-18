@@ -2,7 +2,22 @@
   "name": "protractor-page-object",
   "version": "0.1.0",
   "description": "Protractor Page Object Framework",
-  "main": "src/index.ts",
+  "typescript": {
+    "definitions": [
+        "dist/definitions/components/Button.d.ts",
+        "dist/definitions/components/Component.d.ts",
+        "dist/definitions/components/ComponentAnnotations.d.ts",
+        "dist/definitions/components/Index.d.ts",
+        "dist/definitions/components/Input.d.ts",
+        "dist/definitions/components/List.d.ts",
+        "dist/definitions/selectors/CSSIndexSelector.d.ts",
+        "dist/definitions/selectors/CSSSelector.d.ts",
+        "dist/definitions/selectors/CSSTextSelector.d.ts",
+        "dist/definitions/selectors/Index.d.ts",
+        "dist/definitions/selectors/QASelector.d.ts",
+        "dist/definitions/selectors/Selector.d.ts"
+    ]
+  },
   "scripts": {
     "test": "protractor test/e2e/config/protractor.conf.js"
   },
@@ -17,8 +32,7 @@
     "gulp-typescript": "^2.9.2",
     "jasmine": "^2.3.2",
     "merge2": "^0.3.6",
-    "mocha": "^2.3.3",
-    "typescript-require": "^0.2.9"
+    "mocha": "^2.3.3"
   },
   "dependencies": {
     "ts-node": "^0.5.3",

@@ -120,10 +120,6 @@ describe("example", function () {
         browser.get("http://localhost:3002");
         var chatPage = new ChatPage();
         expect(chatPage.title.getText()).toBe("A simple chat system");
-        var el = chatPage.title.getElement();
-        el.getInnerHtml().then(function (html) {
-            debugger;
-        });
         expect(chatPage.userForm.username.isVisible()).toBe(true);
         chatPage.userForm.username.type("bob");
         chatPage.userForm.sendAction.click();
