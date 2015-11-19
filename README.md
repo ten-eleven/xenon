@@ -3,7 +3,9 @@
 A framework helping you create composable page objects to match your react / angular components. Built for use with protractor.
 
 ## install
-```npm install xenon
+```shell 
+npm install xenon
+```
 
 ## Example
 ```typescript
@@ -79,8 +81,8 @@ class ChatPage extends Component {
 
 }
 
-describe("example", () => {
-  it("should pass", () => {
+describe("Chat App features", () => {
+  it("general acceptance", () => {
     browser.get("http://localhost:3002")
     let chatPage:ChatPage = new ChatPage();
 
