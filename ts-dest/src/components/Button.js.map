@@ -1,1 +1,0 @@
-{"version":3,"file":"Button.js","sourceRoot":"","sources":["../../../src/components/Button.ts"],"names":["Button","Button.constructor"],"mappings":";;;;;AAAA,0BAAsB,aAAa,CAAC,CAAA;AAEpC;IAAoCA,0BAASA;IAC3CA,gBAAYA,MAAgBA;QAC1BC,kBAAMA,MAAMA,CAACA,CAACA;IAChBA,CAACA;IACHD,aAACA;AAADA,CAACA,AAJD,EAAoC,mBAAS,EAI5C;AAJD;wBAIC,CAAA"}
