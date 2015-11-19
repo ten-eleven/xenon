@@ -1,5 +1,4 @@
 var Server = require("../../fixtures/app/Server")
-require('ts-node/register')
 
 exports.config = {
 
@@ -8,7 +7,7 @@ exports.config = {
   baseUrl: "http://localhost:3002/",
   framework: 'jasmine',
   specs: [
-    '../../../ts-dest/test/e2e/specs/*.js'
+    '../../../lib/test/e2e/specs/*.js'
   ],
 
   jasmineNodeOpts: {

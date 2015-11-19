@@ -12,12 +12,12 @@
             "runtimeExecutable": null,
             "runtimeArgs": [
             ],
-            "env": {                
+            "env": {
             },
             "externalConsole": false,
             "sourceMaps": true,
-            "outDir": "ts-dest"            
+            "outDir": "lib"            
         }
     ]
-	
+
 }

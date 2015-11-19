@@ -1,5 +1,13 @@
-import {Component, Input, Button, List, defaults, field} from "../../../src";
+###Protractor page objects
 
+A framework helping you create composable page objects to match your react / angular components.
+
+## Example
+
+import {Component, Input, Button, List} from "protractorPageObject/src/components";
+import {defaults, field} from "protractorPageObject/src/components/ComponentAnnotations";
+
+```typescript
 @defaults({qa:"chat-form"})
 class ChatForm extends Component {
 
@@ -110,3 +118,4 @@ describe("example", () => {
 
 
 })
+```

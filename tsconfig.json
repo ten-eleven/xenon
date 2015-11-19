@@ -1,12 +1,15 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
+        "declaration":true,
         "module": "commonjs",
         "target": "es5",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "outDir": "ts-dest",
-        "sourceMap": true
+        "outDir": "lib",
+        "sourceMap": true,
+        "moduleResolution":"node",
+        "noEmitOnError": true
     },
     "filesGlob": [
         "./src/**/*.ts",
@@ -28,6 +31,7 @@
         "./src/selectors/Selector.ts",
         "./test/e2e/specs/TestSpec.ts",
         "./test/unit/specs/TestSpec.ts",
-        "./typings/tsd.d.ts"
+        "./typings/tsd.d.ts",
+        "./src/index.ts"
     ]
 }
