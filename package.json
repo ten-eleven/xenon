@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Composable page objects framework for Protractor written in typescript.",
   "scripts": {
-    "test": "tsc; protractor test/e2e/config/protractor.conf.js"
+    "build": "make tsc",
+    "test": "make test-e2e"
   },
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
@@ -21,14 +22,14 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "express": "^3.21.2",
-    "gulp": "^3.9.0",
+    "istanbul": "^0.4.0",
     "jasmine": "^2.3.2",
-    "merge2": "^0.3.6",
     "mocha": "^2.3.3",
-    "sinon": "^1.17.2"
-  },
-  "dependencies": {
+    "remap-istanbul": "^0.4.0",
+    "sinon": "^1.17.2",
     "ts-node": "^0.5.3",
     "typescript": "^1.6.2"
+  },
+  "dependencies": {
   }
 }
