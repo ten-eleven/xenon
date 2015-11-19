@@ -6,7 +6,7 @@ var port = 3001;
 var testAppDir = path.resolve(__dirname, 'client');
 var storage = {}
 
-testMiddleware = function(req,res, next) {
+function testMiddleware(req,res, next) {
   if (req.method === 'GET') {
     var value;
     if (req.query.q) {
