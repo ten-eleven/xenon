@@ -1,10 +1,13 @@
-###Protractor page objects
+###Xenon
 
-A framework helping you create composable page objects to match your react / angular components.
+A framework helping you create composable page objects to match your react / angular components. Built for use with protractor. 
+
+## install
+```npm install xenon
 
 ## Example
 ```typescript
-import {Component, Input, Button, List, defaults, field} from "protractor-page-object";
+import {Component, Input, Button, List, defaults, field} from "xenon";
 
 
 @defaults({qa:"chat-form"})
@@ -115,6 +118,14 @@ describe("example", () => {
 
   })
 
-
 })
 ```
+
+##Running Tests
+###Required global installs
+- protractor
+- local selenium server running on port 4444
+- typescript
+
+### Command
+npm test
