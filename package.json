@@ -4,7 +4,7 @@
   "description": "Protractor Page Object Framework",
   "scripts": {
     "build": "make tsc",
-    "test": "make test"
+    "test": "make test-e2e"
   },
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
@@ -18,9 +18,11 @@
     "gulp-clean": "^0.3.1",
     "gulp-protractor": "^1.0.0",
     "gulp-typescript": "^2.9.2",
+    "istanbul": "^0.4.0",
     "jasmine": "^2.3.2",
     "merge2": "^0.3.6",
     "mocha": "^2.3.3",
+    "remap-istanbul": "^0.4.0",
     "sinon": "^1.17.2"
   },
   "dependencies": {
