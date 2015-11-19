@@ -18,6 +18,7 @@ export interface FieldOptions extends ComponentOptions {
   itemQA?:string
   itemCSS?:string
   itemType?:ComponentType
+  [index:string]:any
 }
 
 export function field(componentClass:ComponentType, options:FieldOptions = {}){
