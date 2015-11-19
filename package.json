@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Protractor Page Object Framework",
   "scripts": {
-    "test": "tsc; protractor test/e2e/config/protractor.conf.js"
+    "build": "make tsc",
+    "test": "make test"
   },
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
