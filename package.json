@@ -1,25 +1,36 @@
 {
-  "name": "protractor-page-object",
+  "name": "xenon",
   "version": "0.1.0",
-  "description": "Protractor Page Object Framework",
+  "description": "Composable page objects framework for Protractor written in typescript.",
   "scripts": {
     "build": "make tsc",
     "test": "make test-e2e"
   },
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
-  "author": "",
+  "author": [
+    {
+      "name": "Joseph McElroy",
+      "email": "joe@teneleven.co.uk"
+    },
+    {
+      "name": "Siavash Etemadieh",
+      "email": "ssetem@gmail.com"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.4.1",    
-    "express": "^3.21.2",    
+    "chai": "^3.4.1",
+    "express": "^3.21.2",
     "istanbul": "^0.4.0",
     "jasmine": "^2.3.2",
     "mocha": "^2.3.3",
+    "protractor": "^3.0.0",
     "remap-istanbul": "^0.4.0",
     "sinon": "^1.17.2",
     "ts-node": "^0.5.3",
-    "typescript": "^1.6.2",
-    "protractor":"^3.0.0"
+    "typescript": "^1.6.2"
   }
+   
+
 }
