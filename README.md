@@ -1,6 +1,6 @@
 ###Xenon
 
-A framework helping you create composable page objects to match your react / angular components. Built for use with protractor. 
+A framework helping you create composable page objects to match your react / angular components. Built for use with protractor.
 
 ## install
 ```npm install xenon
@@ -123,9 +123,9 @@ describe("example", () => {
 
 ##Running Tests
 ###Required global installs
-- protractor
+- protractor (^3.0.0)
 - local selenium server running on port 4444
-- typescript
+- typescript (1.6.2+)
 
 ### Command
 npm test
