@@ -7,7 +7,6 @@
   },
   "main": "lib/src/index.js",
   "typings":"lib/src/index.d.ts",
-  "typings": "lib/index.d.ts",
   "author": "",
   "license": "MIT",
   "devDependencies": {
