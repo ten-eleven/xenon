@@ -6,10 +6,11 @@
     "test": "tsc; protractor test/e2e/config/protractor.conf.js"
   },
   "main": "lib/src/index.js",
-  "typings":"lib/src/index.d.ts",
+  "typings": "lib/src/index.d.ts",
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^3.4.1",
     "coffee-script": "^1.10.0",
     "express": "^3.21.2",
     "gulp": "^3.9.0",
@@ -18,7 +19,8 @@
     "gulp-typescript": "^2.9.2",
     "jasmine": "^2.3.2",
     "merge2": "^0.3.6",
-    "mocha": "^2.3.3"
+    "mocha": "^2.3.3",
+    "sinon": "^1.17.2"
   },
   "dependencies": {
     "ts-node": "^0.5.3",
