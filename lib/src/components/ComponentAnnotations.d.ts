@@ -9,6 +9,7 @@ export interface FieldOptions extends ComponentOptions {
     itemQA?: string;
     itemCSS?: string;
     itemType?: ComponentType;
+    [index: string]: any;
 }
 export declare function field(componentClass: ComponentType, options?: FieldOptions): (target: any, propKey: string) => void;
 export declare function defaults(options: FieldOptions): (target: any) => void;
