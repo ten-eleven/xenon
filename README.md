@@ -1,13 +1,31 @@
-###Xenon
+# Summary
 
-A framework helping you create composable page objects to match your react / angular components. Built for use with protractor.
+Xenon is a JavaScript Testing utility for protractor that makes it easier to manage E2E testing with applications which heavily use components. Xenon's API helps you create testing objects which mirror your components structure.
 
-## install
-```shell 
-npm install xenon
+Xenon helps by reducing the amount of duplicated code within E2Es and means that if the UI changes, the fix need only to be applied to one place. The Xenon component can be shipped and versioned with your component making it easy for others to use and rely on.
+
+If you find yourself difficulty maintaining your e2e tests when making simple changes to your component, Xenon may help.
+
+Can be thought of as a page objects framework.
+
+## Why protractor?
+
+Protractor is an end to end test framework for AngularJS applications and maintained by the angular team. It has a great community backing and support from Google. The community also uses it for React applications and we have written E2E's for React apps ( [Searchkit](http://github.com/searchkit/searchkit) ) with xenon and protractor.  
+
+## Why typescript?
+Typescript is a typed superset of JavaScript. If you're xenon objects change, typescript will highlight any issues these changes have made. Code completion makes working with large component trees easy.
+
+## Installation
+To get started with xenon, you can simply install it with npm:
+
+```sh
+npm --save-dev xenon
 ```
 
-## Example
+We rely on `protractor 3.0^`.
+
+## Example Usage
+
 ```typescript
 import {Component, Input, Button, List, defaults, field} from "xenon";
 
@@ -123,11 +141,5 @@ describe("Chat App features", () => {
 })
 ```
 
-##Running Tests
-###Required global installs
-- protractor (^3.0.0)
-- local selenium server running on port 4444
-- typescript (1.6.2+)
-
-### Command
-npm test
+## Why did we make this?
+xenon keeps our E2E's sane and enjoyable to write! Built by teneleven.

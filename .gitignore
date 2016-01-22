@@ -2,3 +2,5 @@ typings
 node_modules
 coverage
 npm-debug.log
+_book
+coverage
