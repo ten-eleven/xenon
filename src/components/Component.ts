@@ -87,9 +87,9 @@ export default class Component {
   }
 
   getText(): webdriver.promise.Promise<string> {
-    return this.getElement().getTagName().then((tagName) => {
-      console.log(tagName)
-      if (tagName.toLowerCase() == "input") {
+    return this.getElement().getTagName().then((t) => {
+      const tagName = t.toLowerCase()
+      if (tagName == "input" || tagName == "textarea") {
         return this.getElement().getAttribute("value")
       } else {
         return this.getElement().getText()
