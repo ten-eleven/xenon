@@ -1,5 +1,7 @@
 # Xenon Framework
 
+[![Join the chat at https://gitter.im/ten-eleven/xenon](https://badges.gitter.im/ten-eleven/xenon.svg)](https://gitter.im/ten-eleven/xenon?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Xenon is a JavaScript Testing utility for protractor that makes it easier to manage E2E testing with applications which heavily use components. Xenon's API helps you create testing objects which mirror your components structure.
 
 Xenon helps by reducing the amount of duplicated code within E2Es and means that if the UI changes, the fix need only to be applied to one place. Xenon components can be shipped and versioned with your component making it easy for others to use and rely on in their E2E tests.
