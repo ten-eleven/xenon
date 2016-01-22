@@ -1,7 +1,8 @@
 {
   "gitbook": "2.5.2",
   "structure": {
-    "readme":"README.md"
+    "readme":"README.md",
+    "summary": "docs/README.md"
   },
   "plugins": ["mermaid-2", "prism", "-highlight", "codepen", "versions"]
 }
