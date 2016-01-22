@@ -6,6 +6,13 @@
     "build": "make tsc",
     "test": "make test-e2e"
   },
+  "keywords":[
+    "page objects",
+    "protractor",
+    "e2e",
+    "reactjs",
+    "protractor"
+  ],
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
   "author": [
