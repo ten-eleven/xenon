@@ -4,7 +4,7 @@ Now we need to create xenon objects to encapulate a component's elements. We sta
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 @defaults({css:".chat-header"})
 class ChatHeader extends Component {
@@ -19,11 +19,11 @@ class ChatPage extends Component {
   @field(ChatHeader)
   header:ChatHeader
 
-  @field(Input, {css:".message"})
-  chatbox:Input
+  @field(Component, {css:".message"})
+  chatbox:Component
 
-  @field(Button, {css:".send-action"})
-  submitChat:Button
+  @field(Component, {css:".send-action"})
+  submitChat:Component
 
 }
 
@@ -48,7 +48,7 @@ describe("Chat App features", () => {
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 @defaults({css:".chat-header"})
 class ChatHeader extends Component {
@@ -70,11 +70,11 @@ class ChatPage extends Component {
   @field(ChatHeader, {id:"second-header"})
   secondHeader:ChatHeader
 
-  @field(Input, {css:".message"})
-  chatbox:Input
+  @field(Component, {css:".message"})
+  chatbox:Component
 
-  @field(Button, {css:".send-action"})
-  submitChat:Button
+  @field(Component, {css:".send-action"})
+  submitChat:Component
 
 }
 

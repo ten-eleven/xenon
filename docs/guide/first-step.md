@@ -27,18 +27,18 @@ Fields are elements on the page for example a title, an action or an input. See 
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 class ChatPage extends Component {
 
   @field(Component, {css:".title"})
   title:Component
 
-  @field(Input, {css:".message"})
-  chatbox:Input
+  @field(Component, {css:".message"})
+  chatbox:Component
 
-  @field(Button, {css:".send-action"})
-  submitChat:Button
+  @field(Component, {css:".send-action"})
+  submitChat:Component
 
 }
 

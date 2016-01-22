@@ -5,18 +5,18 @@ We start by adding to our tests a `messageList` field.
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 class ChatPage extends Component {
 
   @field(ChatHeader)
   header:ChatHeader
 
-  @field(Input, {css:".message"})
-  chatbox:Input
+  @field(Component, {css:".message"})
+  chatbox:Component
 
-  @field(Button, {css:".send-action"})
-  submitChat:Button
+  @field(Component, {css:".send-action"})
+  submitChat:Component
 
   @field(List, {itemCSS:".message", css:".message-list", itemType:Component})
   messageList:List<Component>
@@ -45,7 +45,7 @@ If the message is more of a complicated component, then you can create a xenon o
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component,  List, defaults, field} from "xenon";
 
 class Message extends Component {
 
@@ -61,11 +61,11 @@ class ChatPage extends Component {
   @field(ChatHeader)
   header:ChatHeader
 
-  @field(Input, {css:".message"})
-  chatbox:Input
+  @field(Component, {css:".message"})
+  chatbox:Component
 
-  @field(Button, {css:".send-action"})
-  submitChat:Button
+  @field(Component, {css:".send-action"})
+  submitChat:Component
 
   @field(List, {itemCSS:".message", css:".message-list", itemType:Message})
   messageList:List<Message>
