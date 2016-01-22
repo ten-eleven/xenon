@@ -32,7 +32,7 @@ describe("Chat App features", () => {
     expect(chatPage.messageList.isVisible()).toBe(true)
 
     expect(chatPage.messageList.count()).toBe(1)
-    expect(chatPage.messageList.get(0).text()).toBe("hello")
+    expect(chatPage.messageList.get(0).getText()).toBe("hello")
   })
 
 })
@@ -81,8 +81,8 @@ describe("Chat App features", () => {
     expect(chatPage.messageList.isVisible()).toBe(true)
 
     expect(chatPage.messageList.count()).toBe(1)
-    expect(chatPage.messageList.get(0).message.text()).toBe("hello")
-    expect(chatPage.messageList.get(0).joe.text()).toBe("joe")
+    expect(chatPage.messageList.get(0).message.getText()).toBe("hello")
+    expect(chatPage.messageList.get(0).joe.getText()).toBe("joe")
   })
 
 })

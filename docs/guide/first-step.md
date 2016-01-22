@@ -47,7 +47,7 @@ describe("Chat App features", () => {
     browser.get("http://localhost:3002")
     let chatPage:ChatPage = new ChatPage();
 
-    expect(chatPage.title.text()).toBe("my chat")
+    expect(chatPage.title.getText()).toBe("my chat")
     chatPage.input.type("hello")
     chatPage.submitChat.click()
 

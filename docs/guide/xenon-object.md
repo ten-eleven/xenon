@@ -87,7 +87,7 @@ describe("Chat App features", () => {
     expect(chatPage.header.title.text()).toBe("my chat")
 
     expect(chatPage.secondHeader.isVisible()).toBe(true)
-    expect(chatPage.secondHeader.title.text()).toBe("my second header")
+    expect(chatPage.secondHeader.title.getText()).toBe("my second header")
 
     chatPage.input.type("hello")
     chatPage.submitChat.click()
