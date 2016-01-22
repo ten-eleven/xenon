@@ -1,6 +1,7 @@
 # List Component
 
 Allows you to manage a list of repeatable items such as messages. Extends `Component` class.
+Behaves like list generics, but for page objects
 
 ## Example Usage
 
@@ -42,8 +43,13 @@ describe("Chat App features", () => {
     expect(chatPage.messageList.isVisible()).toBe(true)
 
     expect(chatPage.messageList.count()).toBe(1)
-    expect(chatPage.messageList.get(0).message.getText()).toBe("hello")
-    expect(chatPage.messageList.get(0).joe.getText()).toBe("joe")
+
+    //Returns instance of Message
+    let firstMessage = chatPage.messageList.get(0)
+
+    //We can now check the name + message fields are correct
+    expect(firstMessage.name.getText()).toBe("joe")
+    expect(firstMessage.message.getText()).toBe("hello")
   })
 
 })
