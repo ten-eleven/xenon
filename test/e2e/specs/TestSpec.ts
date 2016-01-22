@@ -1,16 +1,16 @@
-import {Component, Input, Button, List, defaults, field} from "../../../src";
+import {Component, List, defaults, field} from "../../../src";
 
 @defaults({qa:"chat-form"})
 class ChatForm extends Component {
 
-  @field(Input, {qa:"message"})
-  message: Input;
+  @field(Component, {qa:"message"})
+  message: Component;
 
-  @field(Button, {css:"#sendMessage"})
-  sendAction: Button;
+  @field(Component, {css:"#sendMessage"})
+  sendAction: Component;
 
-  @field(Button, {css:"#missingAction"})
-  missingAction: Button;
+  @field(Component, {css:"#missingAction"})
+  missingAction: Component;
 
   sendMessage(message:string):void {
     this.message.type(message);
@@ -22,11 +22,11 @@ class ChatForm extends Component {
 @defaults({qa:"user-form"})
 class UserForm extends Component {
 
-  @field(Input, {qa:"username"})
-  username: Input;
+  @field(Component, {qa:"username"})
+  username: Component;
 
-  @field(Button, {qa:"send-action"})
-  sendAction: Button;
+  @field(Component, {qa:"send-action"})
+  sendAction: Component;
 
   login(name:string) {
     this.username.type(name);

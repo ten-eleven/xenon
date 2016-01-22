@@ -55,10 +55,6 @@ export default class Component {
     return this
   }
 
-  waitUntilPresent():protractor.WebElementPromise {
-    return null;
-  }
-
   private getAncestors():Component[]{
     var ancestors = this.parent ? this.parent.getAncestors() : []
     return ancestors.concat([this])
@@ -145,6 +141,11 @@ export default class Component {
 
   click():void {
     this.getElement().click();
+  }
+
+  type(value:string):void {
+    this.getElement().clear();
+    this.getElement().sendKeys(value);
   }
 
   is(stateName:string):webdriver.promise.Promise<boolean> {
