@@ -1,5 +1,5 @@
 # Xenon Framework
-A Typesafe page object framework
+A Typesafe page object framework, suitable for e2e testing Angular/React apps
 
 [![Join the chat at https://gitter.im/ten-eleven/xenon](https://badges.gitter.im/ten-eleven/xenon.svg)](https://gitter.im/ten-eleven/xenon?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
