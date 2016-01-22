@@ -4,7 +4,7 @@ Create a new spec in `.ts` and import the xenon framework.
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 class ChatPage extends Component {
 

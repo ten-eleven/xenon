@@ -1,4 +1,5 @@
-# Component API
+# Component
+Component is the main base class for a component in xenon, and can be used for the majority of components
 
 ## Usage
 

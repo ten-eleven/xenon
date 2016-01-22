@@ -7,7 +7,7 @@ Behaves like list generics, but for page objects
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 class Message extends Component {
 
@@ -23,11 +23,11 @@ class ChatPage extends Component {
   @field(ChatHeader)
   header:ChatHeader
 
-  @field(Input, {css:".message"})
-  chatbox:Input
+  @field(Component, {css:".message"})
+  chatbox:Component
 
-  @field(Button, {css:".send-action"})
-  submitChat:Button
+  @field(Component, {css:".send-action"})
+  submitChat:Component
 
   @field(List, {itemCSS:".message", css:".message-list", itemType:Message})
   messageList:List<Message>

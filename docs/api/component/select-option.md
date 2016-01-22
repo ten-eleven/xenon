@@ -5,7 +5,7 @@ Assumes component is a selectbox. Selects the option specified which value match
 
 ```typescript
 
-import {Component, Input, Button, List, defaults, field} from "xenon";
+import {Component, List, defaults, field} from "xenon";
 
 class SearchPage extends Component {
 
