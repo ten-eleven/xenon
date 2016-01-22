@@ -1,10 +1,13 @@
 # Xenon Framework
+A Typesafe page object framework
 
 [![Join the chat at https://gitter.im/ten-eleven/xenon](https://badges.gitter.im/ten-eleven/xenon.svg)](https://gitter.im/ten-eleven/xenon?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [Full API Documentation](https://joemcelroy.gitbooks.io/xenon/content/)
 
 Xenon is a JavaScript Testing utility for protractor that makes it easier to manage E2E testing with applications which heavily use components. Xenon's API helps you create testing objects which mirror your components structure.
+
+Xenon is written in typescript and any components you write in typescript can be benefit from code completion and showing compile errors when components change over time. Xenon also has a powerful list generics which allow you to write a page object for a single row/element and apply to multiple instances of that element like those commonly found in list + table UI's.
 
 Xenon helps by reducing the amount of duplicated code within E2Es and means that if the UI changes, the fix need only to be applied to one place. Xenon components can be shipped and versioned with your component making it easy for others to use and rely on in their E2E tests.
 
