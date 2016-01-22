@@ -1,0 +1,2 @@
+# click()
+Clicks the component
