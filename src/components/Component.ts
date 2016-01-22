@@ -87,7 +87,15 @@ export default class Component {
   }
 
   getText(): webdriver.promise.Promise<string> {
-    return this.getElement().getText();
+    return this.getElement().getTagName().then((tagName) => {
+      console.log(tagName)
+      if (tagName.toLowerCase() == "input") {
+        return this.getElement().getAttribute("value")
+      } else {
+        return this.getElement().getText()
+      }
+    })
+
   }
 
   selectOption(value:string):void {

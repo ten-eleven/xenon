@@ -82,6 +82,7 @@ describe("example", () => {
     expect(chatPage.userForm.isNotVisible()).toBe(true);
     expect(chatPage.chatForm.isVisible()).toBe(true);
     chatPage.chatForm.message.type("Hi everyone");
+    expect(chatPage.chatForm.message.getText()).toBe("Hi everyone");
     chatPage.chatForm.sendAction.click();
     expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
     expect(chatPage.messageList.count()).toBe(1);
