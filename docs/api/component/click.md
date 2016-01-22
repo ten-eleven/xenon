@@ -12,7 +12,7 @@ class MyApp extends Component {
 
 it("click the save button", ()=> {
   let app = new MyApp()
-  expect(app.saveButton.click())
+  app.saveButton.click()
 })
 
 ```
