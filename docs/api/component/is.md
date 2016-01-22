@@ -1,4 +1,4 @@
-# is():boolean
+# is(state)
 Verifies the component's state.
 
 ## Usage
@@ -25,7 +25,7 @@ describe("Chat App features", () => {
   it("general acceptance", () => {
     browser.get("http://localhost:3002")
     let chatPage:ChatPage = new ChatPage();
-    chatPage.messageList.get(0).is(Message.states.LATEST)
+    expect(chatPage.messageList.get(0).is(Message.states.LATEST)).toBe(true)
   })
 })
 ```

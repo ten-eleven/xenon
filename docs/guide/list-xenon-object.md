@@ -1,4 +1,4 @@
-# List Xenon Object
+# List Xenon Component
 Next we have have a component which has a list of repeatable elements like a message list or list of options. Xenon provides helpful methods to manage these situations.
 
 We start by adding to our tests a `messageList` field.

@@ -1,4 +1,4 @@
-# First Xenon Object
+# First Xenon Component
 
 Now we need to create xenon objects to encapulate a component's elements. We start by creating a `ChatHeader` xenon object which has a field `title`. In our E2E's we do `expect(chatPage.header.title.text()).toBe("my chat")`. This will use the css path `.chat-header .title` for element. We have inlined the `ChatHeader` class in the test but this can live elsewhere and be imported into the spec.
 
