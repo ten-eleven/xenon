@@ -1,16 +1,16 @@
-# Summary
+# Xenon Framework
 
 Xenon is a JavaScript Testing utility for protractor that makes it easier to manage E2E testing with applications which heavily use components. Xenon's API helps you create testing objects which mirror your components structure.
 
-Xenon helps by reducing the amount of duplicated code within E2Es and means that if the UI changes, the fix need only to be applied to one place. The Xenon component can be shipped and versioned with your component making it easy for others to use and rely on.
+Xenon helps by reducing the amount of duplicated code within E2Es and means that if the UI changes, the fix need only to be applied to one place. Xenon components can be shipped and versioned with your component making it easy for others to use and rely on in their E2E tests.
 
-If you find yourself difficulty maintaining your e2e tests when making simple changes to your component, Xenon may help.
+If you find difficulty maintaining your e2e tests when making simple changes to your component, Xenon may help.
 
-Can be thought of as a page objects framework.
+Can be thought of as a page object framework. See [page object design pattern](http://martinfowler.com/bliki/PageObject.html).
 
 ## Why protractor?
 
-Protractor is an end to end test framework for AngularJS applications and maintained by the angular team. It has a great community backing and support from Google. The community also uses it for React applications and we have written E2E's for React apps ( [Searchkit](http://github.com/searchkit/searchkit) ) with xenon and protractor.  
+Protractor is an end to end test framework for AngularJS applications and maintained by the angular team. It has great community backing and support from Google. The community also uses it for React applications and we have written E2E's for React apps ( [Searchkit E2E](https://github.com/searchkit/searchkit/blob/master/test/e2e/specs/TestSpec.ts) ) with xenon and protractor.  
 
 ## Why typescript?
 Typescript is a typed superset of JavaScript. If you're xenon objects change, typescript will highlight any issues these changes have made. Code completion makes working with large component trees easy.
@@ -142,4 +142,4 @@ describe("Chat App features", () => {
 ```
 
 ## Why did we make this?
-xenon keeps our E2E's sane and enjoyable to write! Built by teneleven.
+xenon keeps our E2E's sane and enjoyable to write! Transportable components! Built by teneleven.
