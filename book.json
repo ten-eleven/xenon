@@ -4,5 +4,5 @@
     "readme":"README.md",
     "summary": "docs/README.md"
   },
-  "plugins": ["mermaid-2", "prism", "-highlight", "codepen", "versions"]
+  "plugins": ["mermaid-2", "prism", "-highlight", "codepen", "collapsible-menu"]
 }

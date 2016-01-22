@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [Guide](/docs/guide/README.md)
+* [Guide](/docs/guide/guide.md)
   * [Project Setup & use](/docs/guide/project-setup.md)
   * [First Step](/docs/guide/first-step.md)
   * [Xenon Component](/docs/guide/xenon-object.md)
