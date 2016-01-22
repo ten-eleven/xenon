@@ -1,5 +1,11 @@
 # is(state)
 Verifies the component's state by mapping a key to a classname
+Very useful for the following kinds of usecases based on className conventions;
+
+* disabled states
+* selected states
+* loading states
+* angular form validity states
 
 ## Usage
 
