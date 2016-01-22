@@ -19,6 +19,7 @@ it("access raw webdriver WebElement method", ()=> {
 
 ```
 ## Exposed WebElement methods
+[webelement](https://angular.github.io/protractor/#/api?view=webdriver.WebElement)
 
 - getRawId
 - isElementPresent

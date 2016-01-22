@@ -17,11 +17,9 @@
         "./typings/tsd.d.ts"
     ],
     "files": [
-        "./src/components/Button.ts",
         "./src/components/Component.ts",
         "./src/components/ComponentAnnotations.ts",
         "./src/components/index.ts",
-        "./src/components/Input.ts",
         "./src/components/List.ts",
         "./src/index.ts",
         "./src/selectors/CSSIndexSelector.ts",

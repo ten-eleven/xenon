@@ -14,7 +14,6 @@ export default class Component {
     qa(qaString: any): Component;
     css(cssString: any): Component;
     setSelector(selector: Selector): Component;
-    waitUntilPresent(): protractor.WebElementPromise;
     private getAncestors();
     getElement(): protractor.WebElementPromise;
     isDisplayed(): webdriver.promise.Promise<boolean>;
@@ -25,5 +24,6 @@ export default class Component {
     isVisible(timeout?: number): webdriver.promise.Promise<boolean>;
     isNotVisible(timeout?: number): webdriver.promise.Promise<boolean>;
     click(): void;
+    type(value: string): void;
     is(stateName: string): webdriver.promise.Promise<boolean>;
 }

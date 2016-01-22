@@ -1,16 +1,16 @@
-import {Component, Input, Button, List, defaults, field} from "../../../src";
+import {Component, List, defaults, field} from "../../../src";
 
 @defaults({qa:"chat-form"})
 class ChatForm extends Component {
 
-  @field(Input, {qa:"message"})
-  message: Input;
+  @field(Component, {qa:"message"})
+  message: Component;
 
-  @field(Button, {css:"#sendMessage"})
-  sendAction: Button;
+  @field(Component, {css:"#sendMessage"})
+  sendAction: Component;
 
-  @field(Button, {css:"#missingAction"})
-  missingAction: Button;
+  @field(Component, {css:"#missingAction"})
+  missingAction: Component;
 
   sendMessage(message:string):void {
     this.message.type(message);
@@ -22,11 +22,11 @@ class ChatForm extends Component {
 @defaults({qa:"user-form"})
 class UserForm extends Component {
 
-  @field(Input, {qa:"username"})
-  username: Input;
+  @field(Component, {qa:"username"})
+  username: Component;
 
-  @field(Button, {qa:"send-action"})
-  sendAction: Button;
+  @field(Component, {qa:"send-action"})
+  sendAction: Component;
 
   login(name:string) {
     this.username.type(name);
@@ -82,6 +82,7 @@ describe("example", () => {
     expect(chatPage.userForm.isNotVisible()).toBe(true);
     expect(chatPage.chatForm.isVisible()).toBe(true);
     chatPage.chatForm.message.type("Hi everyone");
+    expect(chatPage.chatForm.message.getText()).toBe("Hi everyone");
     chatPage.chatForm.sendAction.click();
     expect(chatPage.messageList.get(0).msg.getText()).toBe("Hi everyone");
     expect(chatPage.messageList.count()).toBe(1);
@@ -105,6 +106,7 @@ describe("example", () => {
     let firstReply = chatPage.messageList.get(0)
     expect(firstReply.user.getText()).toBe("joe");
     expect(firstReply.is(Message.states.LATEST)).toBe(true)
+    expect(firstReply.user.getElement().getText()).toBe("joe")
 
   })
 
