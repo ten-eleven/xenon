@@ -1,5 +1,8 @@
 # type(value:string)
 Types text into an input field
+
+## Usage
+
 ```typescript
 import {Component, field, defaults} from "xenon";
 

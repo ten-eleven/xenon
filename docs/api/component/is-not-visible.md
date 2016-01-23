@@ -1,5 +1,5 @@
 # isNotVisible(timeout:number=5000)
-Waits until component is not visible. The test will continue to retry until not visible or until the timeout.
+Waits until component is not visible. The test will continue to retry until component is not visible or until the timeout. Test fails if passes the timeout. `isNotVisible` would be true if the element exists in the DOM but not visible to the user.
 
 
 ```typescript

@@ -1,6 +1,8 @@
 # getText()
 Gets the text content from component. Also supports input and textarea elements.
 
+## Usage
+
 ```typescript
 import {Component, field, defaults} from "xenon";
 

@@ -1,5 +1,7 @@
 # click()
-Gets the text content from component.
+Clicks the component.
+
+## Usage
 
 ```typescript
 import {Component, field, defaults} from "xenon";

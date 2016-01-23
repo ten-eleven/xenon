@@ -1,6 +1,8 @@
 # getElement()
 Gets the protractor wrapped webdriver element
 
+## Usage
+
 ```typescript
 import {Component, field, defaults} from "xenon";
 

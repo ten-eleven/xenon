@@ -1,4 +1,5 @@
-# Component API
+# Component
+Component is the main base class for a component in xenon, and can be used for the majority of components
 
 ## Usage
 
@@ -31,7 +32,7 @@ class Message extends Component {
 ```
 
 ## Selectors
-`qa` and `css` are only currently supported. `qa` works by an attribute in the element of `data-qa`. For example
+`qa` and `css` are only currently supported. `qa` matches elements using `data-qa` attribute value. For example
 
 ```typescript
 @field(Component, {qa:"input-message"})
