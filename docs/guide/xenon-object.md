@@ -34,7 +34,7 @@ describe("Chat App features", () => {
 
     expect(chatPage.header.isVisible()).toBe(true)
     expect(chatPage.header.title.text()).toBe("my chat")
-    chatPage.input.type("hello")
+    chatPage.chatbox.type("hello")
     chatPage.submitChat.click()
 
   })
@@ -89,8 +89,67 @@ describe("Chat App features", () => {
     expect(chatPage.secondHeader.isVisible()).toBe(true)
     expect(chatPage.secondHeader.title.getText()).toBe("my second header")
 
-    chatPage.input.type("hello")
+    chatPage.chatbox.type("hello")
     chatPage.submitChat.click()
+
+  })
+
+})
+
+```
+
+## Custom methods
+You can create custom methods on xenon components. We have refactored the above example with `sendMessage(message)` method.
+
+```typescript
+
+import {Component, List, defaults, field} from "xenon";
+
+@defaults({css:".chat-header"})
+class ChatHeader extends Component {
+
+  @field(Component, {css:".title"})
+  title:Component
+
+  id(id:string) {
+    this.css(".header--"+id);
+  }
+
+}
+
+class ChatPage extends Component {
+
+  @field(ChatHeader, {id:"header"})
+  header:ChatHeader
+
+  @field(ChatHeader, {id:"second-header"})
+  secondHeader:ChatHeader
+
+  @field(Component, {css:".message"})
+  chatbox:Component
+
+  @field(Component, {css:".send-action"})
+  submitChat:Component
+
+  sendMessage(message:string) {
+    this.chatbox.type(message)
+    this.submitChat.click()
+  }
+
+}
+
+describe("Chat App features", () => {
+  it("general acceptance", () => {
+    browser.get("http://localhost:3002")
+    let chatPage:ChatPage = new ChatPage();
+
+    expect(chatPage.header.isVisible()).toBe(true)
+    expect(chatPage.header.title.text()).toBe("my chat")
+
+    expect(chatPage.secondHeader.isVisible()).toBe(true)
+    expect(chatPage.secondHeader.title.getText()).toBe("my second header")
+
+    chatPage.sendMessage("hello")
 
   })
 
