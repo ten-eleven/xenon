@@ -1,55 +1,93 @@
 # List Component
-
 Allows you to manage a list of repeatable items such as messages. Extends `Component` class.
 Behaves like list generics, but for page objects.
 
-## Usage
+
+## Example todo list
+Imagine we have a typical to do app which contains a list of Todo items.
+Each todo has a label and a checkbox.
+
+```html
+<div id="todo-app">
+  <ul class="todo-items">
+    <li class="todo-item">
+      <span class="todo-label">Buy milk</span>
+      <input class="todo-checkbox" type="checkbox" checked="checked">
+    </li>
+    <li class="todo-item">
+      <span class="todo-label">Buy eggs</span>
+      <input class="todo-checkbox" type="checkbox">
+    </li>
+    <li class="todo-item">
+      <span class="todo-label">Do homework</span>
+      <input class="todo-checkbox" type="checkbox">
+    </li>
+  </ul>
+  <form>
+    <input type="text" class="todo-input"/>
+  </form>
+</div>
+```
+
+## Todo list page objects
+Xenon allows us to define a page object type per row, and use a List Component
+which gives array like generics.
 
 ```typescript
 
 import {Component, List, defaults, field} from "xenon";
 
-class Message extends Component {
+class TodoItem extends Component {
+  @field(Component, {css:".todo-label"})
+  label:Component
 
-  @field(Component, {css:".name"})
-  name:Component
-
-  @field(Component, {css:".message"})
-  message:Component
+  @field(Component, {css:".todo-checkbox"})
+  checkbox:Component
 }
 
-class ChatPage extends Component {
+@defaults({css:"#todo-app"})
+class TodoApp extends Component {
 
-  @field(ChatHeader)
-  header:ChatHeader
+  @field(List, {
+    itemCSS:".todo-item",  //per row selector
+    css:".todo-list",      //container selector
+    itemType:TodoItem      //reference to pageObject type, can be Component also
+  })
+  todoItems:List<TodoItem>
 
-  @field(Component, {css:".message"})
-  chatbox:Component
-
-  @field(Component, {css:".send-action"})
-  submitChat:Component
-
-  @field(List, {itemCSS:".message", css:".message-list", itemType:Message})
-  messageList:List<Message>
+  @field(Component, {css:".todo-input"})
+  todoInputField:Component
 }
+```
 
+## Testing the todo app
+```typescript
 describe("Chat App features", () => {
   it("general acceptance", () => {
     browser.get("http://localhost:3002")
-    let chatPage:ChatPage = new ChatPage();
+    let todoApp:TodoApp = new TodoApp();
 
-    chatPage.chatbox.type("hello")
-    chatPage.submitChat.click()
-    expect(chatPage.messageList.isVisible()).toBe(true)
+    //use the count() method on List component
+    expect(todoApp.todoItems.count()).toBe(3)
 
-    expect(chatPage.messageList.count()).toBe(1)
+    //get the first item, xenon returns a TodoItem type
+    let firstTodoItem = todoApp.todoItems.get(0)
+    expect(firstTodoItem.label.getText()).toEqual("Buy milk")
+    expect(firstTodoItem.checkbox.getElement().isSelected()).toBe(true)
 
-    //Returns instance of Message
-    let firstMessage = chatPage.messageList.get(0)
+    //get the first item, xenon returns a TodoItem type
+    let secondTodoItem = todoApp.todoItems.get(1)
+    expect(secondTodoItem.label.getText()).toEqual("Buy eggs")
+    expect(secondTodoItem.checkbox.getElement().isSelected()).toBe(false)
 
-    //We can now check the name + message fields are correct
-    expect(firstMessage.name.getText()).toBe("joe")
-    expect(firstMessage.message.getText()).toBe("hello")
+    //testing adding a todo
+    todoApp.todoInputField.type("Wash dishes")
+    todoApp.todoInputField.getElement().submit()
+
+    expect(todoApp.todoItems.count()).toBe(4)
+    expect(todoApp.todoItems.get(0).label.getText()).toBe("Wash dishes")
+    //make sure todo input field is reset
+    expect(todoApp.todoInputField.getText()).toBe("")
   })
 
 })
