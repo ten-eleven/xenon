@@ -5,6 +5,7 @@
   * [First Step](/docs/guide/first-step.md)
   * [Xenon Component](/docs/guide/xenon-object.md)
   * [Xenon List Component](/docs/guide/list-xenon-object.md)
+  * [Nested Xenon components](/docs/guide/nested-xenon-components.md)
 * [API reference](/docs/api/README.md)    
     * [Component](/docs/api/component/component.md)
       * [getText()](/docs/api/component/get-text.md)
