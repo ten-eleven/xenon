@@ -59,7 +59,7 @@ Below shows how clean the api is without having to namespace our code, e.g.
 
 ```typescript
 // generated protractor element selectors
-// #app .login .title
+// #app .login .modal-title
 app.loginModal.title.getText()
 ```
 
@@ -68,10 +68,17 @@ describe("Test modals", () => {
   it("login Modal + feedback modal", () => {
     browser.get("http://localhost:3002")
     let app:MyApp = new MyApp();    
+
+    //css=#app .login .modal-title
     expect(app.loginModal.title.getText()).toEqual("Login")
 
+    //css=#app .feedback .modal-title
     expect(app.feedbackModal.title.getText()).toEqual("Please give your feedback")
+
+    //css=#app .feedback .modal-close
     app.feedbackModal.closeButton.click()
+
+    //css=#app .feedback
     expect(app.feedbackModal.isVisible()).toBe(false)
   })
 
