@@ -65,11 +65,14 @@ describe("Chat App features", () => {
     browser.get("http://localhost:3002")
     let todoApp:TodoApp = new TodoApp();
 
+    //check todo items are visible
+    expect(todoApp.todoItems.isVisible()).toBe(true)
     //use the count() method on List component
     expect(todoApp.todoItems.count()).toBe(3)
 
     //get the first item, xenon returns a TodoItem type
     let firstTodoItem = todoApp.todoItems.get(0)
+    expect(firstTodoItem.isVisible()).toBe(true)
     expect(firstTodoItem.label.getText()).toEqual("Buy milk")
     expect(firstTodoItem.checkbox.getElement().isSelected()).toBe(true)
 
@@ -83,6 +86,7 @@ describe("Chat App features", () => {
     todoApp.todoInputField.getElement().submit()
 
     expect(todoApp.todoItems.count()).toBe(4)
+    expect(todoApp.todoItems.get(0).isVisible()).toBe(true)
     expect(todoApp.todoItems.get(0).label.getText()).toBe("Wash dishes")
     //make sure todo input field is reset
     expect(todoApp.todoInputField.getText()).toBe("")
