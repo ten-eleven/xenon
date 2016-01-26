@@ -5,6 +5,8 @@ A Typesafe page object framework, suitable for e2e testing Angular/React apps
 
 [Full API Documentation](https://joemcelroy.gitbooks.io/xenon/content/)
 
+![xenon code completion](./assets/codecomplete.gif "Xenon code completion")
+
 Xenon is a JavaScript Testing utility for protractor that makes it easier to manage E2E testing with applications which heavily use components. Xenon's API helps you create testing objects which mirror your components structure.
 
 Xenon is written in typescript and any components you write in typescript can be benefit from code completion and showing compile errors when components change over time. Xenon also has a powerful list generics which allow you to write a page object for a single row/element and apply to multiple instances of that element like those commonly found in list + table UI's.
