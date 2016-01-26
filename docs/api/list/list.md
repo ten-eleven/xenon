@@ -1,5 +1,5 @@
 # List Component
-Allows you to manage a list of repeatable items such as messages. Extends `Component` class.
+Allows you to manage a list of repeatable items such as todo items. Extends `Component` class.
 Behaves like list generics, but for page objects.
 
 

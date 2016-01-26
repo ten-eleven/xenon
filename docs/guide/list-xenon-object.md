@@ -1,5 +1,5 @@
 # List Xenon Component
-Next we have have a component which has a list of repeatable elements like a message list or list of options. Xenon provides helpful methods to manage these situations.
+Next we have have a component which has a list of repeatable elements like a todo list items or list of options. Xenon provides helpful methods to manage these situations.
 
 ## Example todo list
 Imagine we have a typical to do app which contains a list of Todo items.
