@@ -55,13 +55,7 @@ class MyApp extends Component {
 ```
 
 ### Example e2e test
-Below shows how clean the api is without having to namespace our code, e.g.
-
-```typescript
-// generated protractor element selectors
-// #app .login .modal-title
-app.loginModal.title.getText()
-```
+Below shows an example test with the chained selectors that xenon creates.
 
 ```typescript
 describe("Test modals", () => {
