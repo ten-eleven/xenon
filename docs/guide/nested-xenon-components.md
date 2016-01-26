@@ -72,7 +72,7 @@ describe("Test modals", () => {
 
     expect(app.feedbackModal.title.getText()).toEqual("Please give your feedback")
     app.feedbackModal.closeButton.click()
-    expect(app.feedbackModal.isVisble()).toBe(false)
+    expect(app.feedbackModal.isVisible()).toBe(false)
   })
 
 })
