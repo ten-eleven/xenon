@@ -1,7 +1,7 @@
 # Nested Xenon Components
 Xenon components are composite, meaning that you can nested components as deep as you wish to model your application
 
-Another powerful feature of this nesting is the selectors get chained automatically with parent component selectors.
+Another powerful feature of this nesting is that selectors get chained automatically with parent component selectors.
 
 
 ## Modal Example
@@ -49,7 +49,7 @@ class MyApp extends Component {
   loginModal:Component
 
   @field(Modal, {css:".feedback"})
-  feedbackModal:Componetn
+  feedbackModal:Component
 }
 
 ```
