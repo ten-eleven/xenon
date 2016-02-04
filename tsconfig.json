@@ -14,7 +14,7 @@
     "filesGlob": [
         "./src/**/*.ts",
         "./test/**/*.ts",
-        "./typings/tsd.d.ts"
+        "./typings/main.d.ts"
     ],
     "files": [
         "./src/components/Component.ts",
@@ -30,7 +30,7 @@
         "./src/selectors/Selector.ts",
         "./test/e2e/specs/TestSpec.ts",
         "./test/unit/specs/TestSpec.ts",
-        "./typings/tsd.d.ts"
+        "./typings/main.d.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

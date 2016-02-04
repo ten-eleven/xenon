@@ -14,7 +14,6 @@
     "protractor"
   ],
   "main": "lib/src/index.js",
-  "typings": "lib/src/index.d.ts",
   "author": [
     {
       "name": "Joseph McElroy",
