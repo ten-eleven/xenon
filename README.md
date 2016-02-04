@@ -28,7 +28,7 @@ Typescript is a typed superset of JavaScript. If you're xenon objects change, ty
 To get started with xenon, you can simply install it with npm:
 
 ```sh
-npm --save-dev xenon
+npm install --save-dev xenon
 ```
 
 We rely on `protractor 3.0^`.
