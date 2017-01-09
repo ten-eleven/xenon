@@ -1,7 +1,6 @@
 var Server = require("../../fixtures/app/Server")
 
 exports.config = {
-
   seleniumAddress: 'http://localhost:4444/wd/hub',
   chromeDriver: '../../../selenium/chromedriver',
   baseUrl: "http://localhost:3002/",

@@ -1,4 +1,6 @@
-import {Selector, QASelector, CSSSelector} from "../selectors";
+import {Selector, QASelector, CSSSelector} from "../selectors"
+import {WebElementPromise, browser, By, promise} from 'protractor'
+import * as webdriver from 'selenium-webdriver'
 
 export interface ComponentClass<T extends Component> {
   create(component:Component, options:any):T;
@@ -60,7 +62,7 @@ export default class Component {
     return ancestors.concat([this])
   }
 
-  getElement():protractor.WebElementPromise {
+  getElement(): WebElementPromise {
     var ancestors = this.getAncestors();
     var reducer = function (currentElement, component:Component) {
       if(component.selector){
@@ -73,7 +75,7 @@ export default class Component {
     return ancestors.reduce(reducer, nullElement);
   }
 
-  isDisplayed():webdriver.promise.Promise<boolean> {
+  isDisplayed(): webdriver.promise.Promise<boolean> {
     return this.getElement().isDisplayed();
   }
 
@@ -105,7 +107,7 @@ export default class Component {
     selectList
       .all(By.css("option"))
       .then((options) => {
-        protractor.promise.fullyResolved(options.map((option:any) => {
+        promise.fullyResolved(options.map((option:any) => {
           option
             .getText()
             .then((t) => {

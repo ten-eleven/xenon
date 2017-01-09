@@ -1,4 +1,5 @@
-import {Component, List, defaults, field} from "../../../src";
+import {Component, List, defaults, field} from "../../../src"
+import {browser} from 'protractor'
 
 @defaults({qa:"chat-form"})
 class ChatForm extends Component {

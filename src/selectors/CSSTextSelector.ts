@@ -1,4 +1,5 @@
-import Selector from "./Selector";
+import Selector from "./Selector"
+import {By, ElementFinder} from 'protractor'
 
 export default class CSSTextSelector extends Selector {
   constructor(public value:string, public text:string, public exact:boolean) {
@@ -28,7 +29,7 @@ export default class CSSTextSelector extends Selector {
     }
   }
 
-  toElement (element:protractor.ElementFinder) {
+  toElement (element: ElementFinder) {
     if (this.exact) {
       return element.element(By["cssExactText"](this.value, this.text));
     } else {

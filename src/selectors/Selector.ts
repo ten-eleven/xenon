@@ -1,3 +1,5 @@
+import { By, ElementFinder } from 'protractor'
+
 export default class Selector {
 
   constructor(public value:string) {
@@ -7,11 +9,11 @@ export default class Selector {
     return ""
   }
 
-  toLocator() {
+  toLocator(): any {
     return By.css(this.locatorCSS())
   }
 
-  toElement(element:protractor.ElementFinder) {
+  toElement(element: ElementFinder) {
     return element.element(this.toLocator())
   }
 }

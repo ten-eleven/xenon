@@ -14,7 +14,7 @@
     "filesGlob": [
         "./src/**/*.ts",
         "./test/**/*.ts",
-        "./typings/main.d.ts"
+        "./node_modules/@types/**/*.d.ts"
     ],
     "files": [
         "./src/components/Component.ts",
@@ -25,12 +25,25 @@
         "./src/selectors/CSSIndexSelector.ts",
         "./src/selectors/CSSSelector.ts",
         "./src/selectors/CSSTextSelector.ts",
-        "./src/selectors/Index.ts",
+        "./src/selectors/index.ts",
         "./src/selectors/QASelector.ts",
         "./src/selectors/Selector.ts",
         "./test/e2e/specs/TestSpec.ts",
         "./test/unit/specs/TestSpec.ts",
-        "./typings/main.d.ts"
+        "./node_modules/@types/jasmine/index.d.ts",
+        "./node_modules/@types/node/index.d.ts",
+        "./node_modules/@types/q/index.d.ts",
+        "./node_modules/@types/selenium-webdriver/chrome.d.ts",
+        "./node_modules/@types/selenium-webdriver/edge.d.ts",
+        "./node_modules/@types/selenium-webdriver/executors.d.ts",
+        "./node_modules/@types/selenium-webdriver/firefox.d.ts",
+        "./node_modules/@types/selenium-webdriver/http.d.ts",
+        "./node_modules/@types/selenium-webdriver/ie.d.ts",
+        "./node_modules/@types/selenium-webdriver/index.d.ts",
+        "./node_modules/@types/selenium-webdriver/opera.d.ts",
+        "./node_modules/@types/selenium-webdriver/remote.d.ts",
+        "./node_modules/@types/selenium-webdriver/safari.d.ts",
+        "./node_modules/@types/selenium-webdriver/testing.d.ts"
     ],
     "atom": {
         "rewriteTsconfig": true

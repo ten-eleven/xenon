@@ -14,7 +14,7 @@
     "protractor"
   ],
   "main": "lib/src/index.js",
-  "typings":"lib/src/index.d.ts",
+  "typings": "lib/src/index.d.ts",
   "author": [
     {
       "name": "Joseph McElroy",
@@ -32,10 +32,14 @@
     "istanbul": "^0.4.0",
     "jasmine": "^2.3.2",
     "mocha": "^2.3.3",
-    "protractor": "^3.0.0",
+    "protractor": "^4.0.0",
     "remap-istanbul": "^0.4.0",
     "sinon": "^1.17.2",
     "ts-node": "^0.5.3",
-    "typescript": "^1.6.2"
+    "typescript": "^2.1.0",
+    "@types/jasmine": "^2.5.40"
+  },
+  "dependencies": {
+
   }
 }

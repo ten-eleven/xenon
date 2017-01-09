@@ -1,4 +1,7 @@
+/// <reference types="selenium-webdriver" />
 import { Selector } from "../selectors";
+import { WebElementPromise } from 'protractor';
+import * as webdriver from 'selenium-webdriver';
 export interface ComponentClass<T extends Component> {
     create(component: Component, options: any): T;
     new (component: Component): T;
@@ -11,11 +14,11 @@ export default class Component {
     static create(parent: any, options: any): void;
     private autoConstruct();
     private setMultiple(props);
-    qa(qaString: any): Component;
-    css(cssString: any): Component;
-    setSelector(selector: Selector): Component;
+    qa(qaString: any): this;
+    css(cssString: any): this;
+    setSelector(selector: Selector): this;
     private getAncestors();
-    getElement(): protractor.WebElementPromise;
+    getElement(): WebElementPromise;
     isDisplayed(): webdriver.promise.Promise<boolean>;
     scrollIntoView(): webdriver.promise.Promise<{}>;
     getText(): webdriver.promise.Promise<string>;
