@@ -1,6 +1,6 @@
 {
   "name": "xenon",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Composable page objects framework for Protractor written in typescript.",
   "scripts": {
     "build": "make tsc",
